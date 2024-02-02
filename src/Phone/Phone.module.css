@@ -1,0 +1,13 @@
+.phoneContainer {
+  /* position: fixed; */
+  background-color: rgb(255, 165, 165);
+  width: 828px;
+  height: 1700px;
+  border: 5px solid black;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  /* position: sticky;
+  top: 100px;
+  bottom: 100px; */
+}

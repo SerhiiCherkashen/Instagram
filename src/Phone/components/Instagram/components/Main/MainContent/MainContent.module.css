@@ -1,0 +1,9 @@
+.mainContent {
+  background-color: aquamarine;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.mainContent::-webkit-scrollbar {
+  width: 0;
+}

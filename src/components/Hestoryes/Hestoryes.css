@@ -1,0 +1,73 @@
+.wrap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 12500px;
+  background-color: rgb(244, 255, 184);
+  /* display: flex;
+    justify-content: center; */
+}
+.box {
+  background-color: rgb(62, 124, 103);
+  border: 5px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+}
+.bigBox {
+  background-color: rgb(62, 124, 103);
+  border: 5px solid black;
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+}
+.redBox {
+  background-color: rgb(223, 116, 116);
+  border: 5px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  position: absolute;
+
+  /* bottom: 100px; */
+  left: 10px;
+  /* top: 50px;
+    bottom: 50px; */
+  /* right: 1000px; */
+  /* top: 1000px; */
+
+  /* top: 10px;
+    left: 10px; */
+}
+.areaTest {
+  background-color: rgb(147, 231, 166);
+
+  margin: 100px;
+  max-width: 400px;
+  max-height: 300px;
+  display: flex;
+  overflow-x: auto;
+  /* overflow-y: auto; */
+}
+.areaTest::-webkit-scrollbar {
+  /* width: 0; */
+  width: 0;
+}
+.item {
+  min-width: 100px;
+  /* height: 100px; */
+  line-height: 140px;
+  /* margin: 30px; */
+  text-align: center;
+  background-color: gray;
+  border: 3px solid black;
+}
+.screen {
+  box-sizing: border-box;
+  /* background-color: gold; */
+  border: 3px solid black;
+  width: 500px;
+  height: 300px;
+  /* position: absolute; */
+  left: 1000px;
+}

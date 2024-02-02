@@ -1,0 +1,12 @@
+.bottomLPh {
+  background-color: rgb(219, 219, 219);
+  height: 80px;
+  border-radius: 0 0 40px 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+h1 {
+  margin: 0px;
+  text-align: center;
+}

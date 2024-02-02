@@ -1,0 +1,7 @@
+.phoneContainer {
+  background-color: rgb(255, 255, 255);
+  width: 828px;
+  height: 1700px;
+  border: 5px solid black;
+  border-radius: 50px;
+}
