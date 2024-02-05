@@ -1,7 +1,21 @@
-.phoneContainer {
-  background-color: rgb(255, 255, 255);
-  width: 828px;
-  height: 1700px;
-  border: 5px solid black;
-  border-radius: 50px;
+.topLI {
+  background-color: rgb(250, 250, 250);
+
+  height: 100px;
+}
+header {
+  transition: transform 0.5s ease-in-out;
+}
+.visible {
+  /* transform: translateY(0); */
+  transform: translateY(+0%);
+  position: absolute;
+  width: 414px;
+}
+
+/* Стили для невидимого состояния */
+.hidden {
+  transform: translateY(-100%);
+  /* position: absolute; */
+  /* width: 414px; */
 }

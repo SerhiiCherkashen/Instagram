@@ -3,7 +3,9 @@ import topLPh from "./TopLinePhone.module.css";
 
 const TopLinePhone = () => {
   return (
-    <div className={topLPh.topLPh}>
+    <div
+      //  style={{ position: "absolute" }}
+      className={topLPh.topLPh}>
       <h1>TopLinePhone</h1>
     </div>
   );

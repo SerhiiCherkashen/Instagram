@@ -11,7 +11,9 @@ function App() {
     <div className="App">
       {/* <h1>Instagram</h1> */}
       {/* <Historyes /> */}
-      <Phone />
+      <div className="wrapPhone">
+        <Phone />
+      </div>
     </div>
   );
 }

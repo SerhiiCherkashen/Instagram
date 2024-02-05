@@ -1,8 +1,17 @@
 .inst {
   /* margin: 0px; */
   /* margin: 20px; */
-  position: static;
+  /* position: static; */
   margin: 0px;
   background-color: rgb(248, 180, 242);
   height: 100%;
+  /* overflow: hidden; */
+}
+.route {
+  background-color: rgb(253, 90, 90);
+  /* display: block; */
+  height: 335px;
+  /* overflow: hidden; */
+  /* display: block;
+  justify-content: center; */
 }

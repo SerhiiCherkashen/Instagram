@@ -1,4 +1,5 @@
 .reels {
   background-color: rgb(129, 128, 216);
-  height: 1430px;
+  height: 670px;
+  overflow: hidden;
 }

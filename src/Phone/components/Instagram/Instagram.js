@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import inst from "./Instagram.module.css";
 import { Route, Routes } from "react-router-dom";
 import Main from "./components/Main/Main";
@@ -9,21 +9,23 @@ import Profile from "./components/Profile/Profile";
 import BottomLineInst from "./BottomLineInst/BottomLineInst";
 
 const Instagram = () => {
+  // const ref = useRef();
+
+  // useEffect(() => {
+  //   const scroll = ref.current;
+  //   // console.log("Main ref.current : ", ref.current);
+  //   // console.log("Main scroll : ", scroll);
+  //   console.log("Instagram scroll : ", scroll.scrollTop);
+  // });
   return (
-    <div className={inst.inst}>
+    <div
+      //  ref={ref}
+      className={inst.inst}>
       <Routes>
-        <Route path="/" element={<Main />}></Route>
-      </Routes>
-      <Routes>
+        <Route className={inst.route} path="/" element={<Main />}></Route>
         <Route path="/search" element={<Search />}></Route>
-      </Routes>
-      <Routes>
         <Route path="/addPost" element={<AddPost />}></Route>
-      </Routes>
-      <Routes>
         <Route path="/reels" element={<Reels />}></Route>
-      </Routes>
-      <Routes>
         <Route path="/profile" element={<Profile />}></Route>
       </Routes>
       <BottomLineInst />

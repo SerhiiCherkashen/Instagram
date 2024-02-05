@@ -1,8 +1,5 @@
 .main {
   background-color: rgb(179, 221, 140);
-  /* height: 100%; */
-  position: relative;
-  height: 1430px;
-  overflow: hidden;
-  /* position: relative; */
+  height: 670px;
+  /* overflow: hidden; */
 }
