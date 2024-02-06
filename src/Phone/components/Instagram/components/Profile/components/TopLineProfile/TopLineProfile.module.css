@@ -1,0 +1,13 @@
+.topLPr {
+  background-color: rgb(133, 222, 238);
+  /* height: 100px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  /* overflow: hidden; */
+}
+.topLPr img {
+  width: 20px;
+  height: 20px;
+}

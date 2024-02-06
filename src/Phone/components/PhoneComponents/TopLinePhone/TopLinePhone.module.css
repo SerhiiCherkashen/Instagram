@@ -1,7 +1,8 @@
 .topLPh {
   background-color: rgb(216, 216, 216);
-  height: 100px;
+  height: 122px;
   border-radius: 40px 40px 0 0;
   /* position: absolute; */
   width: 414px;
+  z-index: 3;
 }

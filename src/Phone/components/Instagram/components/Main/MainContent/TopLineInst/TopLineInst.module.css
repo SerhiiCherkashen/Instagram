@@ -1,20 +1,23 @@
 .topLI {
   background-color: rgb(250, 250, 250);
 
-  height: 100px;
+  height: 50px;
 }
 header {
   transition: transform 0.5s ease-in-out;
 }
 .visible {
+  transition: transform 0.5s ease-in-out;
   /* transform: translateY(0); */
-  transform: translateY(+0%);
+  transform: translateY(0);
   position: absolute;
   width: 414px;
+  z-index: 2;
 }
 
 /* Стили для невидимого состояния */
 .hidden {
+  transition: transform 1s ease;
   transform: translateY(-100%);
   /* position: absolute; */
   /* width: 414px; */

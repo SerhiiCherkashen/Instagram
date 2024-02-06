@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import main from "./Main.module.css";
-import TopLineInst from "./TopLineInst/TopLineInst";
-import Story from "./Story/Story";
+import Story from "./MainContent/Story/Story";
 import MainContent from "./MainContent/MainContent";
 import { current } from "@reduxjs/toolkit";
 
