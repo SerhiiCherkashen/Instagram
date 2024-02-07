@@ -1,7 +1,22 @@
 .topLI {
   background-color: rgb(250, 250, 250);
-
-  height: 50px;
+  padding: 10px;
+  /* height: 50px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left {
+  font-size: 30px;
+}
+.right {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+.right img {
+  width: 30px;
+  height: 30px;
 }
 header {
   transition: transform 0.5s ease-in-out;

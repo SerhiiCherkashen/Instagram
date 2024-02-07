@@ -18,12 +18,18 @@ const MainContent = () => {
 
   const handleScroll = (e) => {
     let currentScroll = e.target.scrollTop;
-    console.log(" scroll.target : ", e.target.scrollTop);
+    // console.log(" scroll.target : ", e.target.scrollTop);
     if (currentScroll > countPX) {
       dispatch(scroll());
     }
     dispatch(setScrollDirection(currentScroll));
   };
+
+  // useEffect(() => {
+  //   console.log(
+  //     "UseEffect    MainContent     MainContent     MainContent     MainContent     MainContent "
+  //   );
+  // });
 
   return (
     <div
@@ -32,7 +38,6 @@ const MainContent = () => {
       className={mainContent.mainContent}>
       <TopLineInst />
       <Story />
-      asd
       <Posts />
     </div>
   );

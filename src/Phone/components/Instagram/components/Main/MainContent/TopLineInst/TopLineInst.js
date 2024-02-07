@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import topLI from "./TopLineInst.module.css";
 import { useDispatch, useSelector } from "react-redux";
+import { stateConst } from "../../../../../../../BusinessLogic/State/StateConst";
 
 const TopLineInst = (props) => {
   const dispatch = useDispatch();
@@ -18,7 +19,11 @@ const TopLineInst = (props) => {
     >
       {/* Ваше навигационное меню и другие элементы хедера */}
       <div className={topLI.topLI}>
-        <h1>TopLineInst</h1>
+        <div className={topLI.left}>Instagram</div>
+        <div className={topLI.right}>
+          <img src={stateConst.image.instProfilePage.like2} />
+          <img src={stateConst.image.instProfilePage.direct3} />
+        </div>
       </div>
     </header>
   );

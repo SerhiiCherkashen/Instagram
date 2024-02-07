@@ -17,6 +17,10 @@ import comment from "../Image/comment.png";
 import share from "../Image/share.png";
 import save from "../Image/save.png";
 import save2 from "../Image/save2.png";
+import threeDot from "../Image/threeDot.png";
+import direct from "../Image/direct.png";
+import direct2 from "../Image/direct2.png";
+import direct3 from "../Image/direct3.png";
 
 export const stateImage = {
   instProfilePage: {
@@ -27,6 +31,10 @@ export const stateImage = {
     share,
     save,
     save2,
+    threeDot,
+    direct,
+    direct2,
+    direct3,
   },
   instBottomIcons: {
     home,

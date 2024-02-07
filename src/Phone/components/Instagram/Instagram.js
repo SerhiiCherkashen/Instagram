@@ -6,6 +6,7 @@ import Search from "./components/Search/Search";
 import AddPost from "./components/AddPost/AddPost";
 import Reels from "./components/Reels/Reels";
 import Profile from "./components/Profile/Profile";
+import Account from "./components/Account/Account";
 import BottomLineInst from "./BottomLineInst/BottomLineInst";
 
 const Instagram = () => {
@@ -27,6 +28,7 @@ const Instagram = () => {
         <Route path="/addPost" element={<AddPost />}></Route>
         <Route path="/reels" element={<Reels />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/account" element={<Account />}></Route>
       </Routes>
       <BottomLineInst />
     </div>

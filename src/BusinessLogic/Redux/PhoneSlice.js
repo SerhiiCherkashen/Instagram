@@ -1,47 +1,48 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { stateRedux } from "../State/stateRedux";
+import { fn } from "../Functions/fn";
 
-let fn = (state) => {
-  let n = 0;
-  let accountsIndex = 111;
-  let postIndex = 222;
-  while (n < 1000) {
-    accountsIndex = Math.round(
-      Math.random() * (state.stateAccounts.accounts.length - 1)
-    );
-    postIndex = Math.round(
-      Math.random() *
-        (state.stateAccounts.accounts[accountsIndex].posts.length - 1)
-    );
-    let result = state.array.findIndex(function (element) {
-      return (
-        element.postIndex === postIndex &&
-        element.accountsIndex === accountsIndex
-      );
-    });
-    console.log("accountsIndex 1:  -------", accountsIndex);
-    console.log("postIndex 1:  -------", postIndex);
-    console.log("result 1: ", result);
-    if (result === -1) {
-      n = 1000;
-    }
-    if (n === 999) {
-      accountsIndex = "The End";
-    }
-    n++;
+// let fn = (state) => {
+//   let n = 0;
+//   let accountsIndex = 111;
+//   let postIndex = 222;
+//   while (n < 1000) {
+//     accountsIndex = Math.round(
+//       Math.random() * (state.stateAccounts.accounts.length - 1)
+//     );
+//     postIndex = Math.round(
+//       Math.random() *
+//         (state.stateAccounts.accounts[accountsIndex].posts.length - 1)
+//     );
+//     let result = state.array.findIndex(function (element) {
+//       return (
+//         element.postIndex === postIndex &&
+//         element.accountsIndex === accountsIndex
+//       );
+//     });
+//     console.log("accountsIndex 1:  -------", accountsIndex);
+//     console.log("postIndex 1:  -------", postIndex);
+//     console.log("result 1: ", result);
+//     if (result === -1) {
+//       n = 1000;
+//     }
+//     if (n === 999) {
+//       accountsIndex = "The End";
+//     }
+//     n++;
 
-    console.log(
-      "END round ",
-      n,
-      "----------------------------------------------------------------------------------------------------"
-    );
-  }
+//     console.log(
+//       "END round ",
+//       n,
+//       "----------------------------------------------------------------------------------------------------"
+//     );
+//   }
 
-  return {
-    accountsIndex,
-    postIndex,
-  };
-};
+//   return {
+//     accountsIndex,
+//     postIndex,
+//   };
+// };
 
 const state = stateRedux;
 const phoneSlice = createSlice({
@@ -50,12 +51,9 @@ const phoneSlice = createSlice({
   reducers: {
     setScrollDirection: (state, action) => {
       let currentScroll = action.payload;
-
       if (state.main.lastScroll > currentScroll) {
-        // console.log("true");
         state.main.isScrollingUp = true;
       } else {
-        // console.log("false");
         state.main.isScrollingUp = false;
       }
       state.main.lastScroll = currentScroll;
@@ -65,68 +63,99 @@ const phoneSlice = createSlice({
       // console.log(state.count);
     },
     scroll: (state) => {
-      state.countPX += 1000;
+      state.countPX += 700;
 
       for (let i = 0; i < 3; i++) {
         let random = fn(state);
-        console.log("C : ", random);
+        // console.log("Scroll   result fn() : ", random);
         if (random.accountsIndex === "The End") {
+          return;
+        } else {
           state.array.push({
             accountsIndex: random.accountsIndex,
             postIndex: random.postIndex,
-            name: "The End",
-            // name: state.stateAccounts.accounts[random.accountsIndex].name,
+            id: state.stateAccounts.accounts[random.accountsIndex].id,
+            name: state.stateAccounts.accounts[random.accountsIndex].name,
+            profilePhoto:
+              state.stateAccounts.accounts[random.accountsIndex].profilePhoto,
+            post: state.stateAccounts.accounts[random.accountsIndex].posts[
+              random.postIndex
+            ],
+            // likes:
+            //   state.stateAccounts.accounts[random.accountsIndex].posts[
+            //     random.postIndex
+            //   ].likes,
+
+            // likes:
+            //   state.stateAccounts.accounts[random.accountsIndex].posts[
+            //     random.postIndex
+            //   ].likes,
             // image:
             //   state.stateAccounts.accounts[random.accountsIndex].posts[
             //     random.postIndex
             //   ].image,
           });
-        } else {
-          state.array.push({
-            accountsIndex: random.accountsIndex,
-            postIndex: random.postIndex,
-            name: state.stateAccounts.accounts[random.accountsIndex].name,
-            image:
-              state.stateAccounts.accounts[random.accountsIndex].posts[
-                random.postIndex
-              ].image,
-          });
         }
-        console.log("state.array.length ", state.array.length);
-        console.log("state.array ", state.array[5]);
+        console.log("Scroll   state.array.length ", state.array.length);
       }
 
-      console.log("YES");
+      // console.log("YES");
+    },
+    changeFirstRender: (state) => {
+      console.log(
+        "changeFirstRender : - ---     -----    -------        ---    ------    -----     -------    -----    ----                    ------------"
+      );
+      state.main.countFirstRender = false;
+      // const countAccounts = state.stateAccounts.accounts.length;
+      // if (countAccounts > 0) {
+      //   for (let y = 0; y < countAccounts; y++) {
+      //     state.stateAccounts.countAllPosts +=
+      //       state.stateAccounts.accounts[y].posts.length;
+      //   }
+      // }
+      // console.log("countAllPosts Redux: ", state.stateAccounts.countAllPosts);
+    },
+    like: (state, action) => {
+      const accountsIndex = action.payload.accountsIndex;
+      const postIndex = action.payload.postIndex;
+      console.log("like", accountsIndex);
+      console.log("like", postIndex);
+      state.stateAccounts.accounts[accountsIndex].posts[postIndex].likesss++;
+      // state.stateAccounts.accounts[accountsIndex].posts[postIndex].likes.push(
+      //   state.stateAccounts.myAccount.id
+      // );
+
+      console.log(
+        "likesss",
+        state.stateAccounts.accounts[accountsIndex].posts[postIndex].likesss
+      );
+    },
+    changeCurrentAccount: (state, action) => {
+      const id = action.payload;
+      console.log("Change action.payload--- id : ", action.payload); // ID --- True
+      let index = state.stateAccounts.accounts.findIndex((element) => {
+        return element.id === id;
+      });
+      console.log("Change index: ", index);
+      state.stateAccounts.currentAccount = state.stateAccounts.accounts[index];
+      console.log(
+        "Change 1: ",
+        Object.keys(state.stateAccounts.accounts[index])
+      );
+      console.log(
+        "Change 2: ",
+        Object.keys(state.stateAccounts.currentAccount)
+      );
     },
   },
 });
 
-export const { setScrollDirection, setCount, scroll } = phoneSlice.actions;
+export const {
+  setScrollDirection,
+  setCount,
+  scroll,
+  changeFirstRender,
+  like,
+  changeCurrentAccount,
+} = phoneSlice.actions;
 export default phoneSlice.reducer;
-// let accountsIndex = Math.round(
-//   Math.random() * (state.stateAccounts.accounts.length - 1)
-// );
-// console.log("accountsIndex :  ", accountsIndex);
-
-// let postIndex = Math.round(
-//   Math.random() *
-//     (state.stateAccounts.accounts[accountsIndex].posts.length - 1)
-// );
-// console.log("postIndex :  ", postIndex);
-// fn(state).accountsIndex;
-//
-// state.array.push({
-//   name: "new asd",
-//   image:
-//     "https://www.essentiallysports.com/stories/soccer-news-football-a-look-into-lionel-messis-luxury-car-collection-2021/assets/1.jpeg",
-// });
-// state.array.push({
-//   name: "new qwerty",
-//   image:
-//     "https://cdn.i-scmp.com/sites/default/files/d8/images/canvas/2022/06/02/b7d2870a-3262-4ba4-84b5-1f32fc9c8491_627715a1.jpg",
-// });
-// state.array.push({
-//   name: "new fff",
-//   image:
-//     "https://lh6.googleusercontent.com/L63KWkIwBJRp6FrFsflbtiypc8OyomP7P0MjVShdjWw6nhok65X0fN-hBQVGvYHaIb2kVo7D9i--Le7tSO4hGHkkJ6eDiv7ddBPhAHd0NlIORVsYuR_Hn2SNnWoOzBbp6B8f0zOD",
-// });

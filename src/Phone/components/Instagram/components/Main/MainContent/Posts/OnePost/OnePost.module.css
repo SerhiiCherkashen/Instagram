@@ -1,22 +1,63 @@
 .onePost {
   /* background-color: rgb(112, 138, 120); */
 
-  /* height: 500px; */
-  /* border: 5px solid black; */
-  /* border-radius: 50px; */
-  /* margin: 50px; */
-  /* margin-bottom: 100px; */
+  padding-bottom: 10px;
+}
+.higherImg {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoId {
+  /* background-color: aqua; */
+  width: 140px;
+  height: 50px;
+  /* margin-left: 10px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* height: 20px; */
+  /* position: relative;
+  top: 30px;
+  left: 10px; */
+}
+.logoId img {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+.logoId .id {
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 20px;
+}
+img {
+  width: 100%;
+}
+.wrapUnderPhoto {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding: 10px;
 }
 .lcsSave {
   display: flex;
   justify-content: space-between;
-  padding-left: 20px;
+  /* padding-left: 20px;
   padding-right: 20px;
-  padding: 10px;
+  padding: 10px; */
 }
 .likeCommentShare {
   width: 120px;
   /* background-color: blanchedalmond; */
   display: flex;
   justify-content: space-between;
+}
+.likeCommentShare img {
+  width: 30px;
+}
+.countLike {
+  font-size: 20px;
 }

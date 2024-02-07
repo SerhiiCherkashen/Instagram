@@ -1,25 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import posts from "./Posts.module.css";
 import OnePost from "./OnePost/OnePost";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeFirstRender,
+  scroll,
+} from "../../../../../../../BusinessLogic/Redux/PhoneSlice";
 
 const Posts = () => {
-  const { array } = useSelector((state) => state.phoneReducer);
+  const dispatch = useDispatch();
+  // const { array, main } = useSelector((state) => state.postReducer);
+  const { array, main } = useSelector((state) => state.phoneReducer);
   const { myAccount } = useSelector(
     (state) => state.phoneReducer.stateAccounts
   );
+  useEffect(() => {});
+
   return (
     <div className={posts.posts}>
       {array.map((element, index) => {
-        return <OnePost name={element.name} image={element.image} />;
+        // console.log("Posts   element : ", element);
+        // /key={Date.now()}
+        return (
+          <div key={index + Date.now()}>
+            <OnePost element={element} />;
+          </div>
+        );
       })}
-      {/* <h1>Posts 1</h1>
-      <OnePost name={myAccount.name} img={myAccount.profilePhoto} />
-      <h1>Posts 2 </h1>
-      <OnePost />
-      <h1>Posts 3</h1>
-      <OnePost /> */}
-      {/* <OnePost /> */}
+      <h1>The End !!!</h1>
     </div>
   );
 };

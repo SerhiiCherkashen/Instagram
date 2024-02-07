@@ -1,4 +1,9 @@
 .contentPr {
-  background-color: rgb(81, 122, 129);
-  height: 100px;
+  /* background-color: rgb(81, 122, 129); */
+  /* margin: 10px; */
+  /* height: 300px; */
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
 }
