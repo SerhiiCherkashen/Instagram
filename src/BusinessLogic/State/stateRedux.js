@@ -1,6 +1,7 @@
 import { stateAccounts } from "./stateAccounts";
 
 export const stateRedux = {
+  stateAccounts: stateAccounts,
   general: {},
   asd: "HYI /2",
   main: {
@@ -14,9 +15,12 @@ export const stateRedux = {
   add: {},
   reels: {},
   profile: {},
-  stateAccounts: stateAccounts,
   array: [],
   countPX: 0,
+  urlParams: [],
+  urlBack: "",
+  color: true,
+  // pressBack: false,
 };
 // {
 //   accountsIndex: 3,

@@ -20,7 +20,6 @@ const Account = () => {
   // console.log("Account    currentAccount.id :  ", currentAccount.id);
   return (
     <div className={account.account}>
-      <h1>Account</h1>
       <TopLineProfile account={currentAccount} />
       <DataProfile account={currentAccount} />
       <ContentProfile account={currentAccount} />

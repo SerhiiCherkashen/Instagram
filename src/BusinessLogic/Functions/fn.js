@@ -7,7 +7,7 @@ export const fn = (state) => {
       // console.log("Fn for countAllPosts  ", countAllPosts);
     }
   }
-  console.log("Fn countAllPosts IF :  ", countAllPosts);
+  // console.log("Fn countAllPosts IF :  ", countAllPosts);
 
   let n = true;
   let accountsIndex = 111;
@@ -45,11 +45,11 @@ export const fn = (state) => {
     }
     // n++;
 
-    console.log(
-      "END round  ",
-      n,
-      "----------------------------------------------------------------------------------------------------"
-    );
+    // console.log(
+    //   "END round  ",
+    //   n,
+    //   "----------------------------------------------------------------------------------------------------"
+    // );
   }
 
   return {

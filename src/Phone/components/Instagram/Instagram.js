@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import inst from "./Instagram.module.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import Main from "./components/Main/Main";
 import Search from "./components/Search/Search";
 import AddPost from "./components/AddPost/AddPost";
@@ -9,19 +9,37 @@ import Profile from "./components/Profile/Profile";
 import Account from "./components/Account/Account";
 import BottomLineInst from "./BottomLineInst/BottomLineInst";
 
-const Instagram = () => {
-  // const ref = useRef();
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { params } from "../../../BusinessLogic/Redux/PhoneSlice";
+import Ribbon from "./components/Account/components/RibbonComponent/components/Ribbon/Ribbon";
+import RibbonComponent from "./components/Account/components/RibbonComponent/RibbonComponent";
 
-  // useEffect(() => {
-  //   const scroll = ref.current;
-  //   // console.log("Main ref.current : ", ref.current);
-  //   // console.log("Main scroll : ", scroll);
-  //   console.log("Instagram scroll : ", scroll.scrollTop);
-  // });
+function MyComponent() {
+  // const dispatch = useDispatch();
+  // const location = useLocation();
+  // dispatch(params(location.pathname));
+  // console.log("location.pathname : ", location.pathname);
+  // return location.pathname;
+}
+
+const Instagram = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  // const [countState, setCountState] = useState(true);
+  // const { pressBack } = useSelector((state) => state.phoneReducer);
+
+  useEffect(() => {
+    dispatch(params(location.pathname));
+    // console.log(
+    //   "Instagram useEffect   location.pathname : ",
+    //   location.pathname
+    // ); //
+    // setCountState(countState);
+  });
   return (
-    <div
-      //  ref={ref}
-      className={inst.inst}>
+    <div className={inst.inst}>
+      <MyComponent />
       <Routes>
         <Route className={inst.route} path="/" element={<Main />}></Route>
         <Route path="/search" element={<Search />}></Route>
@@ -29,6 +47,7 @@ const Instagram = () => {
         <Route path="/reels" element={<Reels />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/account" element={<Account />}></Route>
+        <Route path="/ribbonComponent" element={<RibbonComponent />}></Route>
       </Routes>
       <BottomLineInst />
     </div>

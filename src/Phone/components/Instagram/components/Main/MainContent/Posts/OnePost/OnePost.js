@@ -11,29 +11,38 @@ import { Link } from "react-router-dom";
 
 const OnePost = (props) => {
   let element = props.element;
-  // console.log("OnePost   props : ", props);
   // console.log("OnePost   element : ", element);
-  // console.log("OnePost   props.post.likes : ", props.post.lekesss);
-  // console.log("OnePost   Object props : ", Object.keys(props));
-  // console.log("OnePost   Object props.post : ", Object.keys(props.post));
-  // console.log("OnePost   typeof props.post : ", typeof props.post);
-  let post = props.post;
+  // console.log("OnePost   element : ", element.accountsIndex);
+  // console.log("OnePost   element : ", element.postIndex);
+
   const dispatch = useDispatch();
-  const { myAccount } = useSelector(
+  const { myAccount, accounts } = useSelector(
     (state) => state.phoneReducer.stateAccounts
   );
+  let account = accounts[element.accountsIndex];
+
+  // let indexAvailable = accounts[element.accountsIndex].posts[
+  let indexAvailable = account.posts[element.postIndex].likes.findIndex(
+    (el) => {
+      return el === myAccount.id;
+    }
+  );
+  // console.log("OnePost indexAvailable : ", indexAvailable);
+  console.log("OnePost account : ", account);
   return (
     <div className={onePost.onePost}>
       <div className={onePost.higherImg}>
         <div className={onePost.logoId}>
-          <img src={element.profilePhoto} />
+          {/* <img src={element.profilePhoto} /> */}
+          <img src={account.profilePhoto} />
           <div
-            onClick={() => dispatch(changeCurrentAccount(element.id))}
+            onClick={() => dispatch(changeCurrentAccount(account.id))}
             className={onePost.id}>
             <Link
               style={{ textDecoration: "none", color: "black" }}
               to="/account">
-              {element.id}
+              {/* {element.id} */}
+              {account.id}
             </Link>
           </div>
         </div>
@@ -41,11 +50,12 @@ const OnePost = (props) => {
           <img src={stateConst.image.instProfilePage.threeDot} />
         </div>
       </div>
-      <img src={`${element.post.image}`} />
+      {/* <img src={`${element.post.image}`} /> */}
+      <img src={`${account.posts[element.postIndex].image}`} />
       <div className={onePost.wrapUnderPhoto}>
         <div className={onePost.lcsSave}>
           <div className={onePost.likeCommentShare}>
-            <img
+            <div
               onClick={() =>
                 dispatch(
                   like({
@@ -53,9 +63,15 @@ const OnePost = (props) => {
                     postIndex: element.postIndex,
                   })
                 )
-              }
-              src={stateConst.image.instProfilePage.like2}
-            />
+              }>
+              {indexAvailable !== -1 ? (
+                <>
+                  <img src={stateConst.image.instProfilePage.like1} />
+                </>
+              ) : (
+                <img src={stateConst.image.instProfilePage.like3} />
+              )}
+            </div>
             <img src={stateConst.image.instProfilePage.comment} />
             <img src={stateConst.image.instProfilePage.share} />
           </div>
@@ -64,9 +80,11 @@ const OnePost = (props) => {
           </div>
         </div>
         <div className={onePost.countLike}>
-          {element.post.likesss} ypodoban
-          {/* {element.post.likes.length !== 0 &&
-            element.post.likes.length + " " + "ypodoban"} */}
+          {
+            accounts[element.accountsIndex].posts[element.postIndex].likes
+              .length
+          }
+          ypodoban
         </div>
       </div>
     </div>

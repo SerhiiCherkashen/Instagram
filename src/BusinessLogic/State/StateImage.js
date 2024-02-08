@@ -21,9 +21,15 @@ import threeDot from "../Image/threeDot.png";
 import direct from "../Image/direct.png";
 import direct2 from "../Image/direct2.png";
 import direct3 from "../Image/direct3.png";
+import back from "../Image/back.png";
+import clock2 from "../Image/clock2.png";
+import menu from "../Image/menu.png";
 
 export const stateImage = {
   instProfilePage: {
+    back,
+    clock2,
+    menu,
     like1,
     like2,
     like3,

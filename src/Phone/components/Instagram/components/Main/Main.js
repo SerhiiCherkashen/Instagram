@@ -14,15 +14,8 @@ const Main = () => {
   const ref = useRef();
 
   useEffect(() => {
-    // console.log(
-    //   "UseEffect    Main     Main     Main     Main    Main     Main     Main     Main "
-    // );
-
     dispatch(scroll());
     dispatch(changeFirstRender());
-    // console.log("useEffect IF ");
-
-    // console.log("useEffect");
   });
   return (
     <div className={main.main}>

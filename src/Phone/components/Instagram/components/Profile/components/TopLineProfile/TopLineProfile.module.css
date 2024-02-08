@@ -1,13 +1,37 @@
 .topLPr {
-  /* background-color: rgb(133, 222, 238); */
+  background-color: rgb(255, 255, 255);
   /* height: 100px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
   /* overflow: hidden; */
+  position: absolute;
+  width: 414px;
+  z-index: 2;
 }
 .topLPr img {
-  width: 20px;
+  width: 30px;
+  height: 30px;
+}
+.left {
+  /* background-color: aqua; */
+  /* width: 150px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.link {
   height: 20px;
+}
+.left div {
+  margin-left: 20px;
+  /* margin-bottom: 10px; */
+  font-size: 25px;
+  font-weight: 600;
+}
+.right {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

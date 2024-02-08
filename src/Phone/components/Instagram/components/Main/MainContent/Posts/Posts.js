@@ -9,7 +9,6 @@ import {
 
 const Posts = () => {
   const dispatch = useDispatch();
-  // const { array, main } = useSelector((state) => state.postReducer);
   const { array, main } = useSelector((state) => state.phoneReducer);
   const { myAccount } = useSelector(
     (state) => state.phoneReducer.stateAccounts
@@ -19,8 +18,6 @@ const Posts = () => {
   return (
     <div className={posts.posts}>
       {array.map((element, index) => {
-        // console.log("Posts   element : ", element);
-        // /key={Date.now()}
         return (
           <div key={index + Date.now()}>
             <OnePost element={element} />;

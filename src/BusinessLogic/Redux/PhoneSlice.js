@@ -96,15 +96,13 @@ const phoneSlice = createSlice({
             //   ].image,
           });
         }
-        console.log("Scroll   state.array.length ", state.array.length);
+        // console.log("Scroll   state.array.length ", state.array.length);
       }
-
-      // console.log("YES");
     },
     changeFirstRender: (state) => {
-      console.log(
-        "changeFirstRender : - ---     -----    -------        ---    ------    -----     -------    -----    ----                    ------------"
-      );
+      // console.log(
+      //   "changeFirstRender : - ---     -----    -------        ---    ------    -----     -------    -----    ----                    ------------"
+      // );
       state.main.countFirstRender = false;
       // const countAccounts = state.stateAccounts.accounts.length;
       // if (countAccounts > 0) {
@@ -116,36 +114,73 @@ const phoneSlice = createSlice({
       // console.log("countAllPosts Redux: ", state.stateAccounts.countAllPosts);
     },
     like: (state, action) => {
+      console.log("like CLICk"); //
       const accountsIndex = action.payload.accountsIndex;
       const postIndex = action.payload.postIndex;
-      console.log("like", accountsIndex);
-      console.log("like", postIndex);
-      state.stateAccounts.accounts[accountsIndex].posts[postIndex].likesss++;
-      // state.stateAccounts.accounts[accountsIndex].posts[postIndex].likes.push(
-      //   state.stateAccounts.myAccount.id
-      // );
-
-      console.log(
-        "likesss",
-        state.stateAccounts.accounts[accountsIndex].posts[postIndex].likesss
-      );
+      console.log("like", accountsIndex); //
+      console.log("like", postIndex); //
+      // state.stateAccounts.accounts[accountsIndex].posts[postIndex].likesss++;
+      let index = state.stateAccounts.accounts[accountsIndex].posts[
+        postIndex
+      ].likes.findIndex((element) => {
+        return element === state.stateAccounts.myAccount.id;
+      });
+      console.log("Like Index : ", index);
+      if (index === -1) {
+        state.stateAccounts.accounts[accountsIndex].posts[postIndex].likes.push(
+          state.stateAccounts.myAccount.id
+        );
+      } else {
+        state.stateAccounts.accounts[accountsIndex].posts[
+          postIndex
+        ].likes.splice(index, 1);
+      }
     },
     changeCurrentAccount: (state, action) => {
       const id = action.payload;
-      console.log("Change action.payload--- id : ", action.payload); // ID --- True
+      // console.log("Change action.payload--- id : ", action.payload); // ID --- True
       let index = state.stateAccounts.accounts.findIndex((element) => {
         return element.id === id;
       });
-      console.log("Change index: ", index);
+      // console.log("Change index: ", index);
       state.stateAccounts.currentAccount = state.stateAccounts.accounts[index];
-      console.log(
-        "Change 1: ",
-        Object.keys(state.stateAccounts.accounts[index])
-      );
-      console.log(
-        "Change 2: ",
-        Object.keys(state.stateAccounts.currentAccount)
-      );
+      // console.log(
+      //   "Change 1: ",
+      //   Object.keys(state.stateAccounts.accounts[index])
+      // );
+      // console.log(
+      //   "Change 2: ",
+      //   Object.keys(state.stateAccounts.currentAccount)
+      // );
+    },
+    params: (state, action) => {
+      const url = action.payload;
+      state.urlParams.push(url);
+      // console.log("Params   dispatch params : url --- ", url); //
+      // console.log(                                              //
+      //   "Params   state.urlParams.length : --- ",
+      //   state.urlParams.length
+      // );
+      let index = state.urlParams.length - 2;
+      state.urlBack = state.urlParams[index];
+      // console.log(state.urlParams[0]);
+      // console.log(state.urlParams[1]);
+      // console.log(state.urlParams[2]);
+      // console.log(state.urlParams[3]);
+      // console.log(state.urlParams[4]);
+      // console.log(state.urlParams[5]);
+    },
+    back: (state) => {
+      state.pressBack = true;
+      if (state.urlParams.length > 2) {
+        let a = state.urlParams.length - 2;
+        let result = state.urlParams.splice(a, 2);
+        state.urlBack = state.urlParams.splice(a, 2);
+        // console.log("Back  : ", a + 1, a, result); //
+      }
+    },
+    changeColor: (state) => {
+      state.color = !state.color;
     },
   },
 });
@@ -157,5 +192,8 @@ export const {
   changeFirstRender,
   like,
   changeCurrentAccount,
+  params,
+  back,
+  changeColor,
 } = phoneSlice.actions;
 export default phoneSlice.reducer;

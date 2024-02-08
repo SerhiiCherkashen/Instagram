@@ -1,0 +1,11 @@
+.ribbon {
+  /* background-color: rgb(139, 139, 3); */
+  /* height: 680px; */
+  margin-bottom: 200px;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+.ribbon::-webkit-scrollbar {
+  width: 0;
+}

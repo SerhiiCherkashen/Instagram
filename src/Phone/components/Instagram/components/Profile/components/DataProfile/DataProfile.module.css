@@ -4,6 +4,7 @@
   /* width: 300px; */
   /* width: 100%; */
   padding: 20px;
+  padding-top: 50px;
 }
 .imgFollowers {
   display: flex;
@@ -23,7 +24,11 @@
   display: flex;
   justify-content: space-around;
 }
-button {
+.subscribeMessage {
+  width: 160px;
   background-color: rgb(197, 197, 197);
   font-size: 20px;
+}
+.blue {
+  background-color: rgb(124, 198, 233);
 }

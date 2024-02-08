@@ -25,12 +25,6 @@ const MainContent = () => {
     dispatch(setScrollDirection(currentScroll));
   };
 
-  // useEffect(() => {
-  //   console.log(
-  //     "UseEffect    MainContent     MainContent     MainContent     MainContent     MainContent "
-  //   );
-  // });
-
   return (
     <div
       id={"elem"}

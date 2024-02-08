@@ -17,16 +17,16 @@ const Story = () => {
   // console.log("Story : ", accounts[0].name);
   return (
     <div className={story.story}>
-      <Link to="/account">
-        <h1>Story</h1>
-      </Link>
-      <h1>{accounts[0].posts[1].likesss}</h1>
+      {/* <Link to="/account"> */}
+      <h1>Story</h1>
+      {/* </Link> */}
+      {/* <h1>{accounts[0].posts[1].likesss}</h1>
       {/* <h1>{accounts[0].posts[1].likes}</h1> */}
       {/* <h1>{accounts[0].posts[1].likes.length}</h1> */}
-      <button
+      {/* <button
         onClick={() => dispatch(like({ accountsIndex: 0, postIndex: 1 }))}>
         +
-      </button>
+      </button>  */}
     </div>
   );
 };

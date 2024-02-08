@@ -5,7 +5,8 @@ const InputSearch = () => {
   return (
     <div className={inputS.inputS}>
       <h1>InputSearch</h1>
-      <input style={{ width: "100%", height: "30px" }} value={"Shykati"} />
+      <input style={{ width: "100%", height: "30px" }} />
+      {/* //value={"Shykati"} */}
     </div>
   );
 };
