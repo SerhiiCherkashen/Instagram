@@ -1,20 +1,21 @@
 import React from "react";
-import profile from "./Profile.module.css";
+import profil from "./Profile.module.css";
 import DataProfile from "./components/DataProfile/DataProfile";
 import TopLineProfile from "./components/TopLineProfile/TopLineProfile";
 import ContentProfile from "./components/ContentProfile/ContentProfile";
 import { useSelector } from "react-redux";
+import PopUp from "./components/TopLineProfile/components/PopUp/PopUp";
 
 const Profile = () => {
-  const { myAccount } = useSelector(
-    (state) => state.phoneReducer.stateAccounts
-  );
+  const { stateAccounts } = useSelector((state) => state.phoneReducer);
+  const { profile } = useSelector((state) => state.profileReducer);
   return (
-    <div className={profile.profile}>
+    <div className={profil.profile}>
       <h1>Profile</h1>
-      <TopLineProfile account={myAccount} />
-      <DataProfile account={myAccount} />
-      <ContentProfile account={myAccount} />
+      <TopLineProfile account={stateAccounts.myAccount} />
+      <DataProfile account={stateAccounts.myAccount} />
+      <ContentProfile account={stateAccounts.myAccount} />
+      {profile.isOpen && <PopUp />}
     </div>
   );
 };

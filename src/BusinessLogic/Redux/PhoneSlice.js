@@ -117,6 +117,9 @@ const phoneSlice = createSlice({
       console.log("like CLICk"); //
       const accountsIndex = action.payload.accountsIndex;
       const postIndex = action.payload.postIndex;
+      console.log("like", Object.keys(action.payload)); //
+      console.log("like", action.payload.accountsIndex); //
+      console.log("like", action.payload.accountIndex); //
       console.log("like", accountsIndex); //
       console.log("like", postIndex); //
       // state.stateAccounts.accounts[accountsIndex].posts[postIndex].likesss++;
@@ -135,6 +138,70 @@ const phoneSlice = createSlice({
           postIndex
         ].likes.splice(index, 1);
       }
+    },
+    likeDoubleClick: (state) => {
+      state.main.stateLikeDoubleClick = !state.main.stateLikeDoubleClick;
+      console.log("likeDoubleClick");
+      console.log(
+        "state.stateLikeDoubleClick : ",
+        state.main.stateLikeDoubleClick
+      );
+    },
+    save: (state, action) => {
+      console.log(action.payload);
+      console.log(action.payload.accountId); // index in accounts;
+
+      const accountIndex = action.payload.accountIndex;
+      const postIndex = action.payload.postIndex;
+
+      const accountId = state.accounts[accountIndex].id;
+      const postId = state.accounts[accountIndex].posts[postId].id;
+      // let postIndex;
+      // let accountIndex = state.stateAccounts.myAccount.savePosts.findIndex(
+      //   (element) => {
+      //     return element.accountId === action.payload.accountId;
+      //   }
+      // );
+      // postIndex = state.stateAccounts.myAccount.savePosts.findIndex(
+      //   (element) => {
+      //     return element.postId === action.payload.postId;
+      //   }
+      // );
+
+      let saveTF = state.stateAccounts.myAccount.savePosts.findIndex(
+        (element) => {
+          return element.postId === postId;
+        }
+      );
+      if (saveTF === -1) {
+        console.log(
+          "save 1:  === -1 "
+          // state.stateAccounts.accounts[accountIndex].posts[postIndex]
+        );
+        state.stateAccounts.myAccount.savePosts.push({
+          accountId: state.stateAccounts.accounts[accountIndex],
+          postId: state.stateAccounts.accounts[postIndex],
+        });
+      } else {
+        // console.log(
+        //   "save :   !== -1 ",
+        //   accountIndex,
+        //   Object.keys(state.stateAccounts)
+        //   // state.stateAccounts.accounts[accountIndex].posts[postIndex]
+        // );
+        // let indexSavePosts = state.stateAccounts.myAccount.savePosts.findIndex(
+        //   (element) => {
+        //     return (
+        //       element.postId ===
+        //       state.stateAccounts.accounts[accountIndex].posts[postIndex]
+        //     );
+        //   }
+        // );
+        state.stateAccounts.myAccount.savePosts.splice(saveTF, 1);
+      }
+
+      // console.log("SAVE");
+      // console.log("SAVE  : ", state.stateAccounts.myAccount.savePosts.length);
     },
     changeCurrentAccount: (state, action) => {
       const id = action.payload;
@@ -191,6 +258,8 @@ export const {
   scroll,
   changeFirstRender,
   like,
+  likeDoubleClick,
+  save,
   changeCurrentAccount,
   params,
   back,

@@ -15,10 +15,36 @@ const Story = () => {
     (state) => state.phoneReducer.stateAccounts
   );
   // console.log("Story : ", accounts[0].name);
+  let count = 0;
   return (
     <div className={story.story}>
       {/* <Link to="/account"> */}
-      <h1>Story</h1>
+      <h1
+        // style={{ backgroundColor: "blue" }}
+        onClick={() => {
+          if (count === 1) {
+            console.log("TWO CLICK");
+          } else {
+            console.log("ONE CLICK", " count :  ", count);
+            setTimeout(() => {
+              count = 0;
+              console.log("setTimeout");
+            }, 500);
+          }
+          count++;
+        }}
+        // onClick={() => console.log("ONE CLICK")}
+        // onDoubleClick={() => console.log("TWO CLICK")}
+        //
+      >
+        Story
+      </h1>
+      {/* <button
+        onDoubleClick={() => console.log("TWO CLICK")}
+        //
+      >
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      </button> */}
       {/* </Link> */}
       {/* <h1>{accounts[0].posts[1].likesss}</h1>
       {/* <h1>{accounts[0].posts[1].likes}</h1> */}

@@ -1,44 +1,55 @@
 import React from "react";
-import onePost from "./OnePost.module.css";
-import { stateConst } from "../../../../../../../../BusinessLogic/State/StateConst";
+import onePSP from "./OnePostSaveProfile.module.css";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { stateConst } from "../../../../../../../../../../../../../../BusinessLogic/State/StateConst";
 import {
   changeCurrentAccount,
   like,
   likeDoubleClick,
-} from "../../../../../../../../BusinessLogic/Redux/PhoneSlice";
-import { Link } from "react-router-dom";
+  save,
+} from "../../../../../../../../../../../../../../BusinessLogic/Redux/PhoneSlice";
 
-const OnePost = (props) => {
+const OnePostSaveProfile = (props) => {
+  const dispatch = useDispatch();
   let count = 0;
   let element = props.element;
-  // console.log("OnePost   element : ", element);
-
-  const dispatch = useDispatch();
+  //   console.log("OnePostSaveProfile   element : ", element);
   const { myAccount, accounts } = useSelector(
     (state) => state.phoneReducer.stateAccounts
   );
   const { main } = useSelector((state) => state.phoneReducer);
 
-  let account = accounts[element.accountsIndex];
+  let account = accounts[element.accountIndex];
   let indexAvailable = account.posts[element.postIndex].likes.findIndex(
     (el) => {
       return el === myAccount.id;
     }
   );
+  let stateSave = myAccount.savePosts.map((iter) => {
+    return iter.postIndex === element.postIndex;
+  });
+  if (stateSave !== -1) {
+    stateSave = true;
+  } else if (stateSave !== "undefined") {
+    stateSave = false;
+  }
+
+  //   console.log("OnePostSaveProfile stateSave", stateSave);
+
   return (
-    <div className={onePost.onePost}>
-      <div className={onePost.higherImg}>
-        <div className={onePost.logoId}>
-          {/* <img src={element.profilePhoto} /> */}
+    <div className={onePSP.onePSP}>
+      <h1>onePSP</h1>
+      <div className={onePSP.higherImg}>
+        <div className={onePSP.logoId}>
           <img src={account.profilePhoto} />
           <div
             onClick={() => dispatch(changeCurrentAccount(account.id))}
-            className={onePost.id}>
+            className={onePSP.id}>
             <Link
               style={{ textDecoration: "none", color: "black" }}
               to="/account">
-              {/* {element.id} */}
+              {/* {element.id} //----- */}
               {account.id}
             </Link>
           </div>
@@ -47,10 +58,11 @@ const OnePost = (props) => {
           <img src={stateConst.image.instProfilePage.threeDot} />
         </div>
       </div>
-      <div className={onePost.wrapLike}>
+      {/*  */}
+      <div className={onePSP.wrapLike}>
         {main.stateLikeDoubleClick && (
           <img
-            className={onePost.likeDoubleClick}
+            className={onePSP.likeDoubleClick}
             src={stateConst.image.instProfilePage.like1}
           />
         )}
@@ -61,7 +73,7 @@ const OnePost = (props) => {
               dispatch(likeDoubleClick());
               dispatch(
                 like({
-                  accountsIndex: element.accountsIndex,
+                  accountsIndex: element.accountIndex,
                   postIndex: element.postIndex,
                 })
               );
@@ -80,18 +92,21 @@ const OnePost = (props) => {
           src={`${account.posts[element.postIndex].image}`}
         />
       </div>
-      <div className={onePost.wrapUnderPhoto}>
-        <div className={onePost.lcsSave}>
-          <div className={onePost.likeCommentShare}>
+      {/*  */}
+      <div className={onePSP.wrapUnderPhoto}>
+        <div className={onePSP.lcsSave}>
+          <div className={onePSP.likeCommentShare}>
             <div
-              onClick={() =>
+              onClick={() => {
+                console.log("LIke CLICK 1 : ", element.accountIndex);
+                console.log("LIke CLICK 2: ", element.postIndex);
                 dispatch(
                   like({
-                    accountsIndex: element.accountsIndex,
+                    accountsIndex: element.accountIndex,
                     postIndex: element.postIndex,
                   })
-                )
-              }>
+                );
+              }}>
               {indexAvailable !== -1 ? (
                 <>
                   <img src={stateConst.image.instProfilePage.like1} />
@@ -103,15 +118,27 @@ const OnePost = (props) => {
             <img src={stateConst.image.instProfilePage.comment} />
             <img src={stateConst.image.instProfilePage.share} />
           </div>
-          <div className={onePost.save}>
-            <img src={stateConst.image.instProfilePage.save} />
+          <div className={onePSP.save}>
+            <img
+              onClick={() =>
+                dispatch(
+                  save({
+                    stateSave: stateSave,
+                    accountsIndex: element.accountIndex,
+                    postIndex: element.postIndex,
+                  })
+                )
+              }
+              src={
+                stateSave
+                  ? stateConst.image.instProfilePage.save2
+                  : stateConst.image.instProfilePage.save
+              }
+            />
           </div>
         </div>
-        <div className={onePost.countLike}>
-          {
-            accounts[element.accountsIndex].posts[element.postIndex].likes
-              .length
-          }
+        <div className={onePSP.countLike}>
+          {accounts[element.accountIndex].posts[element.postIndex].likes.length}
           ypodoban
         </div>
       </div>
@@ -119,4 +146,4 @@ const OnePost = (props) => {
   );
 };
 
-export default OnePost;
+export default OnePostSaveProfile;

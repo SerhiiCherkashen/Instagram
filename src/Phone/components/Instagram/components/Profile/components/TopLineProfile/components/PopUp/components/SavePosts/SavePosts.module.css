@@ -1,0 +1,10 @@
+.saveP {
+  background-color: pink;
+  height: 680px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.saveP::-webkit-scrollbar {
+  width: 0;
+}
