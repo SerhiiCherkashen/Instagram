@@ -14,7 +14,7 @@ const Profile = () => {
       <h1>Profile</h1>
       <TopLineProfile account={stateAccounts.myAccount} />
       <DataProfile account={stateAccounts.myAccount} />
-      <ContentProfile account={stateAccounts.myAccount} />
+      <ContentProfile currentAccount={stateAccounts.myAccount} />
       {profile.isOpen && <PopUp />}
     </div>
   );

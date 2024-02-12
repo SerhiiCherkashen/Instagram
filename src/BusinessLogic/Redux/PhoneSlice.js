@@ -60,7 +60,6 @@ const phoneSlice = createSlice({
     },
     setCount: (state) => {
       state.main.count += 1;
-      // console.log(state.count);
     },
     scroll: (state) => {
       state.countPX += 700;
@@ -68,24 +67,38 @@ const phoneSlice = createSlice({
       for (let i = 0; i < 3; i++) {
         let random = fn(state);
         // console.log("Scroll   result fn() : ", random);
-        if (random.accountsIndex === "The End") {
+        if (random.accountIndex === "The End") {
           return;
         } else {
-          state.array.push({
-            accountsIndex: random.accountsIndex,
-            postIndex: random.postIndex,
-            id: state.stateAccounts.accounts[random.accountsIndex].id,
-            name: state.stateAccounts.accounts[random.accountsIndex].name,
-            profilePhoto:
-              state.stateAccounts.accounts[random.accountsIndex].profilePhoto,
-            post: state.stateAccounts.accounts[random.accountsIndex].posts[
-              random.postIndex
-            ],
+          state.array.push(
+            {
+              accountId: state.stateAccounts.accounts[random.accountIndex].id,
+              postId:
+                state.stateAccounts.accounts[random.accountIndex].posts[
+                  random.postIndex
+                ].id,
+            }
+            // state.stateAccounts.accounts[random.accountIndex].posts[
+            //   random.postIndex
+            // ]
+            // {
+            //
+            //
+            //
+            // accountIndex: random.accountIndex,
+            // postIndex: random.postIndex,
+            // id: state.stateAccounts.accounts[random.accountIndex].id,
+            // name: state.stateAccounts.accounts[random.accountIndex].name,
+            // profilePhoto:
+            //   state.stateAccounts.accounts[random.accountIndex].profilePhoto,
+            // post: state.stateAccounts.accounts[random.accountIndex].posts[
+            //   random.postIndex
+            // ],
+            //-----------------------------------------
             // likes:
             //   state.stateAccounts.accounts[random.accountsIndex].posts[
             //     random.postIndex
             //   ].likes,
-
             // likes:
             //   state.stateAccounts.accounts[random.accountsIndex].posts[
             //     random.postIndex
@@ -94,7 +107,8 @@ const phoneSlice = createSlice({
             //   state.stateAccounts.accounts[random.accountsIndex].posts[
             //     random.postIndex
             //   ].image,
-          });
+            // }
+          );
         }
         // console.log("Scroll   state.array.length ", state.array.length);
       }
@@ -115,26 +129,26 @@ const phoneSlice = createSlice({
     },
     like: (state, action) => {
       console.log("like CLICk"); //
-      const accountsIndex = action.payload.accountsIndex;
+      const accountIndex = action.payload.accountIndex;
       const postIndex = action.payload.postIndex;
       console.log("like", Object.keys(action.payload)); //
-      console.log("like", action.payload.accountsIndex); //
       console.log("like", action.payload.accountIndex); //
-      console.log("like", accountsIndex); //
+      console.log("like", action.payload.accountIndex); //
+      console.log("like", accountIndex); //
       console.log("like", postIndex); //
       // state.stateAccounts.accounts[accountsIndex].posts[postIndex].likesss++;
-      let index = state.stateAccounts.accounts[accountsIndex].posts[
+      let index = state.stateAccounts.accounts[accountIndex].posts[
         postIndex
       ].likes.findIndex((element) => {
         return element === state.stateAccounts.myAccount.id;
       });
       console.log("Like Index : ", index);
       if (index === -1) {
-        state.stateAccounts.accounts[accountsIndex].posts[postIndex].likes.push(
+        state.stateAccounts.accounts[accountIndex].posts[postIndex].likes.push(
           state.stateAccounts.myAccount.id
         );
       } else {
-        state.stateAccounts.accounts[accountsIndex].posts[
+        state.stateAccounts.accounts[accountIndex].posts[
           postIndex
         ].likes.splice(index, 1);
       }
@@ -148,60 +162,33 @@ const phoneSlice = createSlice({
       );
     },
     save: (state, action) => {
-      console.log(action.payload);
-      console.log(action.payload.accountId); // index in accounts;
+      const accountId = action.payload.accountId;
+      const postId = action.payload.postId;
 
-      const accountIndex = action.payload.accountIndex;
-      const postIndex = action.payload.postIndex;
-
-      const accountId = state.accounts[accountIndex].id;
-      const postId = state.accounts[accountIndex].posts[postId].id;
-      // let postIndex;
-      // let accountIndex = state.stateAccounts.myAccount.savePosts.findIndex(
-      //   (element) => {
-      //     return element.accountId === action.payload.accountId;
-      //   }
-      // );
-      // postIndex = state.stateAccounts.myAccount.savePosts.findIndex(
-      //   (element) => {
-      //     return element.postId === action.payload.postId;
-      //   }
-      // );
+      console.log("SAVE     accountId/postId ", accountId, postId);
 
       let saveTF = state.stateAccounts.myAccount.savePosts.findIndex(
         (element) => {
+          // console.log(
+          //   "SAVE --- element.postId === postId",
+          //   element.postId,
+          //   ",===,",
+          //   postId
+          // );
           return element.postId === postId;
         }
       );
+
       if (saveTF === -1) {
-        console.log(
-          "save 1:  === -1 "
-          // state.stateAccounts.accounts[accountIndex].posts[postIndex]
-        );
+        console.log("SAVE    PUSH ");
         state.stateAccounts.myAccount.savePosts.push({
-          accountId: state.stateAccounts.accounts[accountIndex],
-          postId: state.stateAccounts.accounts[postIndex],
+          accountId: accountId,
+          postId: postId,
         });
       } else {
-        // console.log(
-        //   "save :   !== -1 ",
-        //   accountIndex,
-        //   Object.keys(state.stateAccounts)
-        //   // state.stateAccounts.accounts[accountIndex].posts[postIndex]
-        // );
-        // let indexSavePosts = state.stateAccounts.myAccount.savePosts.findIndex(
-        //   (element) => {
-        //     return (
-        //       element.postId ===
-        //       state.stateAccounts.accounts[accountIndex].posts[postIndex]
-        //     );
-        //   }
-        // );
+        console.log("SAVE --- ");
         state.stateAccounts.myAccount.savePosts.splice(saveTF, 1);
       }
-
-      // console.log("SAVE");
-      // console.log("SAVE  : ", state.stateAccounts.myAccount.savePosts.length);
     },
     changeCurrentAccount: (state, action) => {
       const id = action.payload;
@@ -209,16 +196,7 @@ const phoneSlice = createSlice({
       let index = state.stateAccounts.accounts.findIndex((element) => {
         return element.id === id;
       });
-      // console.log("Change index: ", index);
       state.stateAccounts.currentAccount = state.stateAccounts.accounts[index];
-      // console.log(
-      //   "Change 1: ",
-      //   Object.keys(state.stateAccounts.accounts[index])
-      // );
-      // console.log(
-      //   "Change 2: ",
-      //   Object.keys(state.stateAccounts.currentAccount)
-      // );
     },
     params: (state, action) => {
       const url = action.payload;

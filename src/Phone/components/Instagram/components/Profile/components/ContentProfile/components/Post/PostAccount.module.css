@@ -1,20 +1,22 @@
 .postAc {
-  /* background-color: rgb(155, 240, 255); */
+  /* background-color: rgb(255, 215, 155); */
   /* width: 110px; */
   height: 100px;
   overflow: hidden;
   position: relative;
-  /* margin: 10px; */
 }
 .postAc img {
+  padding: 0px;
+  margin-bottom: 10px;
   /* width: auto;
   height: 100%; */
   /* max-width: auto; /* Устанавливаем ширину изображения на 100% квадрата */
   /* height: auto; */
-  width: 100%;
+  /* width: 100%;   // */
   height: 100%;
-  position: absolute; /* Позиционируем изображение абсолютно внутри квадрата */
-  top: 0; /* Располагаем изображение в верхнем левом углу квадрата */
-  left: 0;
+  /* position: absolute;  */
+  /* Позиционируем изображение абсолютно внутри квадрата */
+  /* top: 0; Располагаем изображение в верхнем левом углу квадрата */
+  /* left: 0; */
   /* height: auto; */
 }

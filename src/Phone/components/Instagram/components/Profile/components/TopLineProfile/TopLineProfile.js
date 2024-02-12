@@ -14,7 +14,7 @@ const TopLineProfile = (props) => {
   const { urlParams, urlBack, asd, profile } = useSelector(
     (state) => state.phoneReducer
   );
-  console.log("TopLineProfile profile.isOpen : ", profile.isOpen);
+  // console.log("TopLineProfile profile.isOpen : ", profile.isOpen);
 
   let index = urlParams.length - 2;
   let url = urlParams[index];

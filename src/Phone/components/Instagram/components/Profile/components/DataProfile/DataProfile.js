@@ -21,6 +21,7 @@ const DataProfile = (props) => {
           <img
             style={{ width: "100px", height: "100px", borderRadius: "50px" }}
             src={account.profilePhoto}
+            alt="..."
             // src={"https://s.ill.in.ua/i/custom/1024x0/63763/63763814056648.jpg"}
           />
         </div>

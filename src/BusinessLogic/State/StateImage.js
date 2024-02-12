@@ -24,8 +24,16 @@ import direct3 from "../Image/direct3.png";
 import back from "../Image/back.png";
 import clock2 from "../Image/clock2.png";
 import menu from "../Image/menu.png";
+import wifi from "../Image/wifi.png";
+import net from "../Image/net.png";
+import battery from "../Image/battery.png";
 
 export const stateImage = {
+  topLinePhone: {
+    wifi,
+    net,
+    battery,
+  },
   instProfilePage: {
     back,
     clock2,

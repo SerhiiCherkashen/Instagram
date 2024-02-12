@@ -1,0 +1,63 @@
+/* .onePost {
+
+  padding-bottom: 10px;
+}
+.higherImg {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoId {
+  width: 140px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+.logoId img {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+.logoId .id {
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 20px;
+}
+img {
+  width: 100%;
+}
+.wrapUnderPhoto {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding: 10px;
+}
+.lcsSave {
+  display: flex;
+  justify-content: space-between;
+}
+.likeCommentShare {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+.likeCommentShare img {
+  width: 30px;
+}
+.countLike {
+  font-size: 20px;
+}
+.wrapLike {
+  z-index: 3;
+}
+.likeDoubleClick {
+  width: 100px;
+
+  position: absolute;
+  left: 600px;
+  top: 400px;
+  z-index: 1;
+} */

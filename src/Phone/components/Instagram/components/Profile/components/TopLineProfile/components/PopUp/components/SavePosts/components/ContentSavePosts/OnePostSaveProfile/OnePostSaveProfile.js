@@ -98,8 +98,8 @@ const OnePostSaveProfile = (props) => {
           <div className={onePSP.likeCommentShare}>
             <div
               onClick={() => {
-                console.log("LIke CLICK 1 : ", element.accountIndex);
-                console.log("LIke CLICK 2: ", element.postIndex);
+                // console.log("LIke CLICK 1 : ", element.accountIndex);
+                // console.log("LIke CLICK 2: ", element.postIndex);
                 dispatch(
                   like({
                     accountsIndex: element.accountIndex,
