@@ -1,7 +1,65 @@
+import { stateConst } from "./StateConst";
 import { stateAccounts } from "./stateAccounts";
 
 export const stateRedux = {
   stateAccounts: stateAccounts,
+  reelsScroll: 0,
+  testStateVideo: [
+    {
+      id: "video1",
+      video: stateConst.video.video,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video2",
+      video: stateConst.video.motoVideo,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video3",
+      video: stateConst.video.video,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video4",
+      video: stateConst.video.motoVideo2,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video5",
+      video: stateConst.video.motoVideo3,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video6",
+      video: stateConst.video.motoVideo4,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video7",
+      video: stateConst.video.motoVideo5,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video8",
+      video: stateConst.video.motoVideo6,
+      muted: true,
+      autoplay: false,
+    },
+    {
+      id: "video9",
+      video: stateConst.video.motoVideo7,
+      muted: true,
+      autoplay: false,
+    },
+  ],
   general: {},
   asd: "HYI /2",
   main: {

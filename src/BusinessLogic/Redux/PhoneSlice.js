@@ -227,6 +227,83 @@ const phoneSlice = createSlice({
     changeColor: (state) => {
       state.color = !state.color;
     },
+    mutedSwitch: (state, action) => {
+      let index = state.testStateVideo.findIndex((iter) => {
+        return iter.id === action.payload;
+      });
+      let indexNow = state.testStateVideo.findIndex((iter) => {
+        return iter.muted === false;
+      });
+
+      state.testStateVideo.forEach((el) => {
+        el.muted = true;
+      });
+      if (indexNow !== index) {
+        state.testStateVideo[index].muted = false;
+      } else {
+        state.testStateVideo[index].muted = true;
+      }
+      console.log("song", action.payload, index, indexNow);
+    },
+    mutedSwitchPost: (state, action) => {
+      let account;
+      const accountIndex = action.payload.accountIndex;
+      const postIndex = action.payload.postIndex;
+
+      state.stateAccounts.accounts[accountIndex].posts[postIndex].muted =
+        !state.stateAccounts.accounts[accountIndex].posts[postIndex].muted;
+
+      console.log("mutedSwitchPost song  : ", accountIndex, postIndex);
+
+      // account.posts.forEach((el) => {
+      //   el.muted = true;
+      // });
+      // if (indexNow !== index) {
+      //   account[index].muted = false;
+      // } else {
+      //   account[index].muted = true;
+      // }
+    },
+    getPositionOnScroll: (state, action) => {
+      // console.log("aaa");
+      // let id = action.payload.id;
+      // let top = action.payload.top;
+      // let bottom = action.payload.bottom;
+      // let result = Object.keys(action.payload);
+      // if (
+      //   typeof result !== "object" ||
+      //   result === null ||
+      //   result === undefined
+      // ) {
+      //   result = "HyI";
+      // }
+      // console.log("aaa", action.payload);
+      // console.log("aaa", action.payload.id, result);
+      // console.log("aaa", id, top, bottom);
+      // console.log("aaa", action.payload.id);
+      // if(  )
+    },
+    writeReelsScroll: (state, action) => {
+      state.reelsScroll = action.payload;
+      console.log("hyi  state.reelsScroll  : ", state.reelsScroll);
+    },
+    changeMutedOnScroll: (state, action) => {
+      console.log("changeMutedOnScroll :  ", action.payload.id);
+      // let index = state.testStateVideo.findIndex((iter) => {
+      //   return iter.id === action.payload;
+      // });
+      // let indexNow = state.testStateVideo.findIndex((iter) => {
+      //   return iter.muted === false;
+      // });
+      // state.testStateVideo.forEach((el) => {
+      //   el.muted = true;
+      // });
+      // if (indexNow !== index) {
+      //   state.testStateVideo[index].muted = false;
+      // } else {
+      //   state.testStateVideo[index].muted = true;
+      // }
+    },
   },
 });
 
@@ -242,5 +319,10 @@ export const {
   params,
   back,
   changeColor,
+  mutedSwitch,
+  mutedSwitchPost,
+  getPositionOnScroll,
+  writeReelsScroll,
+  changeMutedOnScroll,
 } = phoneSlice.actions;
 export default phoneSlice.reducer;

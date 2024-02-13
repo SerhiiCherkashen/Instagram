@@ -27,6 +27,9 @@ import menu from "../Image/menu.png";
 import wifi from "../Image/wifi.png";
 import net from "../Image/net.png";
 import battery from "../Image/battery.png";
+import sound from "../Image/sound.png";
+import soundOff from "../Image/soundOff.png";
+import motoCrossNew from "../Image/motoCrossNew.jpg";
 
 export const stateImage = {
   topLinePhone: {
@@ -35,6 +38,8 @@ export const stateImage = {
     battery,
   },
   instProfilePage: {
+    soundOff,
+    sound,
     back,
     clock2,
     menu,
@@ -66,6 +71,7 @@ export const stateImage = {
     round,
   },
   all: {
+    motoCrossNew,
     messi,
   },
 };

@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import reels from "./Reels.module.css";
+import { stateConst } from "../../../../../BusinessLogic/State/StateConst";
+import WrapVideos from "./WrapVideos/WrapVideos";
+import { useDispatch, useSelector } from "react-redux";
+import { writeReelsScroll } from "../../../../../BusinessLogic/Redux/PhoneSlice";
 
 const Reels = () => {
+  const dispatch = useDispatch();
+  const { stateAccounts, reelsScroll } = useSelector(
+    (state) => state.phoneReducer
+  );
+  useEffect(() => {
+    console.log("effect");
+  }, []);
+
   return (
-    <div className={reels.reels}>
+    <div
+      onScroll={(e) => {
+        console.log(e.target.scrollTop);
+        // dispatch(writeReelsScroll(e.target.scrollTop));
+      }}
+      className={reels.reels}>
       <h1>Reels</h1>
+      <WrapVideos />
     </div>
   );
 };

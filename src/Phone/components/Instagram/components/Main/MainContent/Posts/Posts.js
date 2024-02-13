@@ -4,8 +4,10 @@ import OnePost from "./OnePost/OnePost";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeFirstRender,
+  mutedSwitch,
   scroll,
 } from "../../../../../../../BusinessLogic/Redux/PhoneSlice";
+import { stateConst } from "../../../../../../../BusinessLogic/State/StateConst";
 
 const Posts = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,17 @@ const Posts = () => {
 
   return (
     <div className={posts.posts}>
+      <>
+        {/* <video loop autoPlay={true} muted={true}>
+          <source src={stateConst.video.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video> */}
+        {/* <button
+          style={{ fontSize: "30px" }}
+          onClick={() => dispatch(mutedSwitch("video"))}>
+          Song
+        </button> */}
+      </>
       {array.map((element, index) => {
         return (
           <div key={index + Date.now()}>

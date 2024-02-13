@@ -1,11 +1,11 @@
 .contentSP {
   /* background-color: rgb(139, 139, 3); */
   /* height: 680px; */
-  margin-bottom: 200px;
-  overflow: hidden;
-  overflow-y: auto;
-  height: 100%;
+  /* margin-bottom: 200px; */
+  /* overflow: hidden; */
+  /* overflow-y: auto; */
+  /* height: 100%; */
 }
-.contentSP::-webkit-scrollbar {
+/* .contentSP::-webkit-scrollbar {
   width: 0;
-}
+} */

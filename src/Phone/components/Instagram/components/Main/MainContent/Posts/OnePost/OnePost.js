@@ -6,6 +6,8 @@ import {
   changeCurrentAccount,
   like,
   likeDoubleClick,
+  mutedSwitch,
+  mutedSwitchPost,
   save,
 } from "../../../../../../../../BusinessLogic/Redux/PhoneSlice";
 import { Link } from "react-router-dom";
@@ -45,71 +47,178 @@ const OnePost = (props) => {
     // );
     return iter.postId === postId;
   });
-  // console.log("OnePost   stateSave : ", stateSave);
   if (stateSave !== -1) {
     stateSave = true;
-    // console.log("OnePost   stateSave/postId : ", stateSave, "---", postId);
-  }
-  //  if (stateSave !== "undefined")
-  else {
-    // console.log("OnePost   stateSave : ", stateSave);
+  } else {
     stateSave = false;
   }
-
   return (
     <div className={onePost.onePost}>
-      <div className={onePost.higherImg}>
-        <div className={onePost.logoId}>
-          <img src={accounts[accountIndex].profilePhoto} />
-          <div
-            onClick={() =>
-              dispatch(changeCurrentAccount(accounts[accountIndex].id))
-            }
-            className={onePost.id}>
-            <Link
-              style={{ textDecoration: "none", color: "black" }}
-              to="/account">
-              {accounts[accountIndex].id}
-            </Link>
+      {accounts[accountIndex].posts[postIndex].status === "video" ? (
+        <>
+          <div className={onePost.wrapHigherImgVideo}>
+            <div className={onePost.higherImgVideo}>
+              <div className={onePost.logoId}>
+                <img src={accounts[accountIndex].profilePhoto} />
+                <div
+                  onClick={() =>
+                    dispatch(changeCurrentAccount(accounts[accountIndex].id))
+                  }
+                  className={onePost.id}>
+                  <Link
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/account">
+                    {accounts[accountIndex].id}
+                  </Link>
+                </div>
+              </div>
+              <div>
+                <img src={stateConst.image.instProfilePage.threeDot} />
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
-          <img src={stateConst.image.instProfilePage.threeDot} />
-        </div>
-      </div>
-      <div className={onePost.wrapLike}>
-        {main.stateLikeDoubleClick && (
-          <img
-            className={onePost.likeDoubleClick}
-            src={stateConst.image.instProfilePage.like1}
-          />
-        )}
+          <div className={onePost.wrapLike}>
+            {main.stateLikeDoubleClick && (
+              <img
+                className={onePost.likeDoubleClick}
+                src={stateConst.image.instProfilePage.like1}
+              />
+            )}
+            {/*  */}
+            <div className={onePost.video}>
+              <video
+                onClick={() => {
+                  if (count === 1) {
+                    dispatch(likeDoubleClick());
+                    dispatch(
+                      like({
+                        accountIndex: accountIndex,
+                        postIndex: postIndex,
+                      })
+                    );
+                    setTimeout(() => {
+                      dispatch(likeDoubleClick());
+                    }, 500);
 
-        <img
-          onClick={() => {
-            if (count === 1) {
-              dispatch(likeDoubleClick());
-              dispatch(
-                like({
-                  accountIndex: accountIndex,
-                  postIndex: postIndex,
-                })
-              );
-              setTimeout(() => {
-                dispatch(likeDoubleClick());
-              }, 500);
+                    console.log("TWO CLICK");
+                  } else {
+                    setTimeout(() => {
+                      count = 0;
+                    }, 500);
+                  }
+                  count++;
+                }}
+                loop
+                autoPlay={true}
+                muted={accounts[accountIndex].posts[postIndex].muted}
+                width="100%"
+                height="auto">
+                <source
+                  src={accounts[accountIndex].posts[postIndex].video}
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+              <div className={onePost.wrapSwitchSound}>
+                <div
+                  className={onePost.sound}
+                  style={{ fontSize: "30px" }}
+                  onClick={() =>
+                    dispatch(mutedSwitchPost({ accountIndex, postIndex }))
+                  }>
+                  {accounts[accountIndex].posts[postIndex].muted ? (
+                    <img src={stateConst.image.instProfilePage.soundOff} />
+                  ) : (
+                    <img src={stateConst.image.instProfilePage.sound} />
+                  )}
+                </div>
+              </div>
+            </div>
+            {/*  */}
+            {/* <img
+              onClick={() => {
+                if (count === 1) {
+                  dispatch(likeDoubleClick());
+                  dispatch(
+                    like({
+                      accountIndex: accountIndex,
+                      postIndex: postIndex,
+                    })
+                  );
+                  setTimeout(() => {
+                    dispatch(likeDoubleClick());
+                  }, 500);
 
-              console.log("TWO CLICK");
-            } else {
-              setTimeout(() => {
-                count = 0;
-              }, 500);
-            }
-            count++;
-          }}
-          src={`${accounts[accountIndex].posts[postIndex].image}`}
-        />
-      </div>
+                  console.log("TWO CLICK");
+                } else {
+                  setTimeout(() => {
+                    count = 0;
+                  }, 500);
+                }
+                count++;
+              }}
+              src={`${accounts[accountIndex].posts[postIndex].image}`}
+            /> */}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={onePost.higherImg}>
+            <div className={onePost.logoId}>
+              <img src={accounts[accountIndex].profilePhoto} />
+              <div
+                onClick={() =>
+                  dispatch(changeCurrentAccount(accounts[accountIndex].id))
+                }
+                className={onePost.id}>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/account">
+                  {accounts[accountIndex].id}
+                </Link>
+              </div>
+            </div>
+            <div>
+              <img src={stateConst.image.instProfilePage.threeDot} />
+            </div>
+          </div>
+          <div className={onePost.wrapLike}>
+            {main.stateLikeDoubleClick && (
+              <img
+                className={onePost.likeDoubleClick}
+                src={stateConst.image.instProfilePage.like1}
+              />
+            )}
+
+            <img
+              onClick={() => {
+                if (count === 1) {
+                  dispatch(likeDoubleClick());
+                  dispatch(
+                    like({
+                      accountIndex: accountIndex,
+                      postIndex: postIndex,
+                    })
+                  );
+                  setTimeout(() => {
+                    dispatch(likeDoubleClick());
+                  }, 500);
+
+                  console.log("TWO CLICK");
+                } else {
+                  setTimeout(() => {
+                    count = 0;
+                  }, 500);
+                }
+                count++;
+              }}
+              src={`${accounts[accountIndex].posts[postIndex].image}`}
+            />
+          </div>
+        </>
+      )}
+
+      {/*  */}
       <div className={onePost.wrapUnderPhoto}>
         <div className={onePost.lcsSave}>
           <div className={onePost.likeCommentShare}>

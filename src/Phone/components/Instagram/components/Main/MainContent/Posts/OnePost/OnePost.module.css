@@ -1,6 +1,5 @@
 .onePost {
   /* background-color: rgb(112, 138, 120); */
-
   padding-bottom: 10px;
 }
 .higherImg {
@@ -11,18 +10,11 @@
   align-items: center;
 }
 .logoId {
-  /* background-color: aqua; */
   width: 140px;
   height: 50px;
-  /* margin-left: 10px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
-  /* height: 20px; */
-  /* position: relative;
-  top: 30px;
-  left: 10px; */
 }
 .logoId img {
   width: 30px;
@@ -45,13 +37,9 @@ img {
 .lcsSave {
   display: flex;
   justify-content: space-between;
-  /* padding-left: 20px;
-  padding-right: 20px;
-  padding: 10px; */
 }
 .likeCommentShare {
   width: 120px;
-  /* background-color: blanchedalmond; */
   display: flex;
   justify-content: space-between;
 }
@@ -62,20 +50,42 @@ img {
   font-size: 20px;
 }
 .wrapLike {
-  z-index: 3;
+  position: relative;
 }
 .likeDoubleClick {
   width: 100px;
-
-  /* position: sticky; */
-  /* left: 400px; */
-  /* top: 400px; */
   position: absolute;
-  left: 600px;
-  top: 400px;
-  /* position: relative;
-  left: 157px;
-  top: 200px; */
-  /* margin-left: 100px; */
-  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.video {
+  background-color: darkblue;
+}
+.wrapHigherImgVideo {
+  position: relative;
+}
+.higherImgVideo {
+  width: 96%;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  /* left: 100px;
+  top: 100px; */
+  z-index: 3;
+}
+.wrapSwitchSound {
+  position: relative;
+}
+.sound {
+  background-color: gray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 }

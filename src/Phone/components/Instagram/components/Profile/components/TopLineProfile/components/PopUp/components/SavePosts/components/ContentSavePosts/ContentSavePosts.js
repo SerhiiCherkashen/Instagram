@@ -16,21 +16,6 @@ const ContentSavePosts = (props) => {
       <h1>ContentSavePosts</h1>
       <div className={contentSP.contentSP}>
         {myAccount.savePosts.map((item, index) => {
-          // let postIndex;
-          // let accountIndex = accounts.findIndex((iter) => {
-          //   return iter.id === item.accountId;
-          // });
-          // if (accountIndex !== -1) {
-          //   postIndex = accounts[accountIndex].posts.findIndex((iter) => {
-          //     return iter.id === item.postId;
-          //   });
-          // }
-          // if (
-          //   accountIndex !== -1 &&
-          //   postIndex !== -1 &&
-          //   accountIndex !== "undefined" &&
-          //   postIndex !== "undefined"
-          // ) {
           let element = {
             accountId: item.accountId,
             postId: item.postId,
@@ -43,7 +28,6 @@ const ContentSavePosts = (props) => {
             // <OnePostSaveProfile element={element} />
             // </div>
           );
-          // }
         })}
       </div>
     </div>

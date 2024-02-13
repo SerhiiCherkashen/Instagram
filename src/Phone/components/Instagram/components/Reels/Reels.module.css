@@ -2,4 +2,9 @@
   background-color: rgb(129, 128, 216);
   height: 670px;
   overflow: hidden;
+  overflow-y: auto;
+}
+
+.reels::-webkit-scrollbar {
+  width: 0;
 }

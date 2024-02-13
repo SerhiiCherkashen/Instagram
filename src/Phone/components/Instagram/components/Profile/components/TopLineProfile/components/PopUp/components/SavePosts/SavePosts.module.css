@@ -1,6 +1,7 @@
 .saveP {
-  background-color: pink;
+  /* background-color: pink; */
   height: 680px;
+  /* height: 100%; */
   overflow: hidden;
   overflow-y: auto;
 }

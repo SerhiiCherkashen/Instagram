@@ -22,6 +22,7 @@ const DataProfile = (props) => {
             style={{ width: "100px", height: "100px", borderRadius: "50px" }}
             src={account.profilePhoto}
             alt="..."
+            //   https://thumbs.dreamstime.com/b/gray-man-avatar-design-concept-ai-supported-81256396.jpg
             // src={"https://s.ill.in.ua/i/custom/1024x0/63763/63763814056648.jpg"}
           />
         </div>

@@ -8,7 +8,7 @@ const TopLineSavePosts = (props) => {
     <div>
       <div className={topLSP.topLSP}>
         <div className={topLSP.backDop}>
-          <Link to="/account">
+          <Link to="/profile">
             <img src={stateConst.image.instProfilePage.back} />
           </Link>
           <div>Dopisi</div>
