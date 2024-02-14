@@ -30,6 +30,9 @@ import battery from "../Image/battery.png";
 import sound from "../Image/sound.png";
 import soundOff from "../Image/soundOff.png";
 import motoCrossNew from "../Image/motoCrossNew.jpg";
+import poster from "../Image/poster.jpg";
+import posterMoto from "../Image/posterMoto.avif";
+import posterMoto2 from "../Image/postermoto2.avif";
 
 export const stateImage = {
   topLinePhone: {
@@ -73,5 +76,8 @@ export const stateImage = {
   all: {
     motoCrossNew,
     messi,
+    poster,
+    posterMoto,
+    posterMoto2,
   },
 };

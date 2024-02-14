@@ -9,12 +9,15 @@ import PopUp from "./components/TopLineProfile/components/PopUp/PopUp";
 const Profile = () => {
   const { stateAccounts } = useSelector((state) => state.phoneReducer);
   const { profile } = useSelector((state) => state.profileReducer);
+  let indexMyAccount = stateAccounts.accounts.findIndex((element) => {
+    return element.id === stateAccounts.myId;
+  });
   return (
     <div className={profil.profile}>
-      <h1>Profile</h1>
-      <TopLineProfile account={stateAccounts.myAccount} />
-      <DataProfile account={stateAccounts.myAccount} />
-      <ContentProfile currentAccount={stateAccounts.myAccount} />
+      {/* <h1>Profile</h1> */}
+      <TopLineProfile account={stateAccounts.accounts[indexMyAccount]} />
+      <DataProfile account={stateAccounts.accounts[indexMyAccount]} />
+      <ContentProfile currentAccount={stateAccounts.accounts[indexMyAccount]} />
       {profile.isOpen && <PopUp />}
     </div>
   );

@@ -1,4 +1,4 @@
-.topLPr {
+.topLA {
   background-color: rgb(255, 255, 255);
   /* height: 100px; */
   display: flex;
@@ -8,21 +8,6 @@
   position: absolute;
   width: 414px;
   z-index: 2;
-}
-.topLPrMyAcc {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  padding-left: 30px;
-}
-.accId {
-  font-size: 25px;
-  font-weight: 600;
-}
-.topLPrMyAcc img {
-  width: 30px;
-  height: 30px;
 }
 .topLPr img {
   width: 30px;
@@ -45,8 +30,10 @@
   font-weight: 600;
 }
 .right {
+  /* background-color: red; */
   width: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 25px;
 }

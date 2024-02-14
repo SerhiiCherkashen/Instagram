@@ -3,19 +3,34 @@ import contentPr from "./ContentProfile.module.css";
 import PostAccount from "./components/Post/PostAccount";
 import { Link } from "react-router-dom";
 import OnePost from "../../../Main/MainContent/Posts/OnePost/OnePost";
+import { useDispatch, useSelector } from "react-redux";
+import { changeCurrentAccount } from "../../../../../../../BusinessLogic/Redux/PhoneSlice";
+import { stateAccounts } from "../../../../../../../BusinessLogic/State/stateAccounts";
 
 const ContentProfile = (props) => {
+  const dispatch = useDispatch();
+  const { stateAccounts } = useSelector((state) => state.phoneReducer);
   const currentAccount = props.currentAccount;
-
+  const indexMyAccount = stateAccounts.accounts.findIndex((element) => {
+    return element.id === stateAccounts.myId;
+  });
   return (
     <>
-      {currentAccount.id === "_serhii_007_" ? (
+      {currentAccount.id === stateAccounts.accounts[indexMyAccount].id ? (
         <div className={contentPr.contentPr}>
           {currentAccount.posts.map((element, index) => {
             return (
-              <div key={index + new Date()}>
+              <div
+                onClick={() =>
+                  dispatch(
+                    changeCurrentAccount(
+                      stateAccounts.accounts[indexMyAccount].id
+                    )
+                  )
+                }
+                key={index + new Date()}>
                 <Link to="/ribbonComponent">
-                  <PostAccount image={element.image} />;
+                  <PostAccount image={element.image} />
                 </Link>
               </div>
             );
@@ -24,11 +39,11 @@ const ContentProfile = (props) => {
       ) : (
         <div className={contentPr.contentPr}>
           {currentAccount.posts.map((element, index) => {
-            console.log(
-              "ContentProfile element : ",
-              Object.keys(element),
-              element
-            );
+            // console.log(
+            //   "Account ContentProfile element : ",
+            //   Object.keys(element),
+            //   element
+            // );
             let asd;
             if (element.status === "video") {
               asd = element.poster;
@@ -38,7 +53,7 @@ const ContentProfile = (props) => {
             return (
               <div key={index + new Date()}>
                 <Link to="/ribbonComponent">
-                  <PostAccount image={asd} />;
+                  <PostAccount image={asd} />
                 </Link>
               </div>
             );

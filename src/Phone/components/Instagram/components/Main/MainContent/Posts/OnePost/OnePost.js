@@ -18,35 +18,36 @@ const OnePost = (props) => {
   let count = 0;
   const accountId = props.element.accountId;
   const postId = props.element.postId;
+  // console.log("OnePost      accountId /  postId)  : ", accountId, postId);
 
   const dispatch = useDispatch();
   const { stateAccounts, array, main } = useSelector(
     (state) => state.phoneReducer
   );
+  let indexMyAccount = stateAccounts.accounts.findIndex((element) => {
+    return element.id === stateAccounts.myId;
+  });
   const accounts = stateAccounts.accounts;
   const accountIndex = accounts.findIndex((element) => {
     return element.id === accountId;
   });
+
+  // console.log("OnePost      ???   : ", accountIndex);
   const postIndex = accounts[accountIndex].posts.findIndex((element) => {
     return element.id === postId;
   });
 
   let indexAvailable = accounts[accountIndex].posts[postIndex].likes.findIndex(
     (el) => {
-      return el === stateAccounts.myAccount.id;
+      return el === stateAccounts.accounts[indexMyAccount].id;
     }
   );
 
-  let stateSave = stateAccounts.myAccount.savePosts.findIndex((iter) => {
-    // console.log(
-    //   "OnePost  stateSave iter : ",
-    //   iter.postId,
-    //   "---",
-    //   postId,
-    //   iter.postId === postId
-    // );
-    return iter.postId === postId;
-  });
+  let stateSave = stateAccounts.accounts[indexMyAccount].savePosts.findIndex(
+    (iter) => {
+      return iter.postId === postId;
+    }
+  );
   if (stateSave !== -1) {
     stateSave = true;
   } else {
@@ -111,6 +112,7 @@ const OnePost = (props) => {
                 loop
                 autoPlay={true}
                 muted={accounts[accountIndex].posts[postIndex].muted}
+                poster={accounts[accountIndex].posts[postIndex].poster}
                 width="100%"
                 height="auto">
                 <source
@@ -243,8 +245,6 @@ const OnePost = (props) => {
             <img src={stateConst.image.instProfilePage.share} />
           </div>
           <div className={onePost.save}>
-            {/* <img src={stateConst.image.instProfilePage.save} /> */}
-            {/*  */}
             <img
               onClick={() =>
                 dispatch(
@@ -264,8 +264,8 @@ const OnePost = (props) => {
           </div>
         </div>
         <div className={onePost.countLike}>
-          {accounts[accountIndex].posts[postIndex].likes.length}
-          ypodoban
+          {`${accounts[accountIndex].posts[postIndex].likes.length}
+          like`}
         </div>
       </div>
     </div>

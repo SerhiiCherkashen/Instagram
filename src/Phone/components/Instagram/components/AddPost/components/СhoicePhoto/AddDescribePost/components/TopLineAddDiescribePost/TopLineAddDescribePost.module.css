@@ -1,0 +1,21 @@
+.topLDP {
+  background-color: rgb(255, 255, 255);
+  /* height: 100px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* overflow: hidden; */
+  position: absolute;
+  width: 414px;
+  /* padding-: 20px; */
+  z-index: 2;
+}
+.topLDP img {
+  padding-left: 20px;
+  width: 30px;
+  height: 30px;
+}
+.dopis {
+  margin-left: 50px;
+  font-size: 25px;
+}

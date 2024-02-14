@@ -13,7 +13,7 @@ const TopLineSavePosts = (props) => {
           </Link>
           <div>Dopisi</div>
         </div>
-        <div className={topLSP.right}> Stejity</div>
+        <div className={topLSP.right}> </div>
       </div>
     </div>
   );

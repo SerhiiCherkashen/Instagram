@@ -4,6 +4,7 @@ import { stateAccounts } from "./stateAccounts";
 export const stateRedux = {
   stateAccounts: stateAccounts,
   reelsScroll: 0,
+  addSelectedPhoto: stateConst.addPhoto[0].photo,
   testStateVideo: [
     {
       id: "video1",

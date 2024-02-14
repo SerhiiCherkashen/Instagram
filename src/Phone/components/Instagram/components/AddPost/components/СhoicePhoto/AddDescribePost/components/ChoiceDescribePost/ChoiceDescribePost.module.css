@@ -1,0 +1,41 @@
+.choiceDP {
+  /* background-color: rgb(133, 222, 238); */
+  height: 670px;
+  /* overflow: hidden; */
+  margin-top: 50px;
+}
+.currentPhoto {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.InputText {
+  /* background-color: hotpink; */
+}
+.InputText input {
+  background-color: rgb(233, 233, 233);
+  border: none;
+  padding-left: 30px;
+  font-size: 20px;
+  width: 100%;
+  height: 50px;
+}
+.extraOptions {
+  padding: 10px;
+  padding-left: 30px;
+  font-size: 25px;
+}
+.button {
+  /* width: 414px; */
+  display: flex;
+  justify-content: center;
+}
+.button button {
+  background-color: rgb(14, 138, 255);
+  color: white;
+  padding: 7px;
+  width: 390px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}

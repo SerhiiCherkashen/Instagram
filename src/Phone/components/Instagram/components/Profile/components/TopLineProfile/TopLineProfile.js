@@ -26,18 +26,16 @@ const TopLineProfile = (props) => {
   return (
     <>
       {account.id === "_serhii_007_" ? (
-        <div className={topLPr.topLPr}>
+        <div className={topLPr.topLPrMyAcc}>
           {/* // <div> */}
-          <div>{account.id}</div>
+          <div className={topLPr.accId}>{account.id}</div>
           <img
             onClick={() => dispatch(openPopup())}
             src={stateConst.image.instBottomIcons.add}
           />
-          {/* // </div> */}
         </div>
       ) : (
         <div className={topLPr.topLPr}>
-          {/* <div> */}
           <div className={topLPr.left}>
             <div className={topLPr.link} onClick={() => dispatch(back())}>
               <Link to={"/"}>
@@ -50,10 +48,8 @@ const TopLineProfile = (props) => {
             <img src={stateConst.image.instProfilePage.clock2} />
             <img src={stateConst.image.instProfilePage.threeDot} />
           </div>
-          {/* </div> */}
         </div>
       )}
-      {/* // </div> */}
     </>
   );
 };

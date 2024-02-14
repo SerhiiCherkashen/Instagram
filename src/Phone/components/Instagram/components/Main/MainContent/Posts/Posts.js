@@ -32,8 +32,8 @@ const Posts = () => {
       </>
       {array.map((element, index) => {
         return (
-          <div key={index + Date.now()}>
-            <OnePost element={element} />;
+          <div className={posts.wrapOnePost} key={index + Date.now()}>
+            <OnePost element={element} />
           </div>
         );
       })}

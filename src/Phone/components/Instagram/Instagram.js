@@ -15,6 +15,7 @@ import { params } from "../../../BusinessLogic/Redux/PhoneSlice";
 import Ribbon from "./components/Account/components/RibbonComponent/components/Ribbon/Ribbon";
 import RibbonComponent from "./components/Account/components/RibbonComponent/RibbonComponent";
 import SavePosts from "./components/Profile/components/TopLineProfile/components/PopUp/components/SavePosts/SavePosts";
+import AddDescribePost from "./components/AddPost/components/СhoicePhoto/AddDescribePost/AddDescribePost";
 
 function MyComponent() {
   // const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const Instagram = () => {
         <Route path="/account" element={<Account />}></Route>
         <Route path="/ribbonComponent" element={<RibbonComponent />}></Route>
         <Route path="/savePosts" element={<SavePosts />}></Route>
+        <Route path="/addDescribePost" element={<AddDescribePost />}></Route>
       </Routes>
       <BottomLineInst />
     </div>

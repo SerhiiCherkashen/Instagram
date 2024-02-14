@@ -13,7 +13,7 @@ const TopLineRibbon = () => {
         </Link>
         <div>Dopisi</div>
       </div>
-      <div className={topLR.right}> Stejity</div>
+      <div className={topLR.right}> </div>
     </div>
   );
 };

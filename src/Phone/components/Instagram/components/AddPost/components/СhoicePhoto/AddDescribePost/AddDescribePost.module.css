@@ -1,0 +1,9 @@
+.addDP {
+  /* background-color: rgb(76, 206, 64); */
+  height: 670px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.addDP::-webkit-scrollbar {
+  width: 0;
+}

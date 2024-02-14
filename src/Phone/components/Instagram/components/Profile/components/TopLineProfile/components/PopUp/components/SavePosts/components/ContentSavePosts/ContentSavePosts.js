@@ -7,15 +7,17 @@ import OnePost from "../../../../../../../../../Main/MainContent/Posts/OnePost/O
 
 const ContentSavePosts = (props) => {
   const dispatch = useDispatch();
-  const { myAccount, accounts } = useSelector(
-    (state) => state.phoneReducer.stateAccounts
-  );
+  const { stateAccounts } = useSelector((state) => state.phoneReducer);
+
+  let indexMyAccount = stateAccounts.accounts.findIndex((element) => {
+    return element.id === stateAccounts.myId;
+  });
 
   return (
     <div>
       <h1>ContentSavePosts</h1>
       <div className={contentSP.contentSP}>
-        {myAccount.savePosts.map((item, index) => {
+        {stateAccounts.accounts[indexMyAccount].savePosts.map((item, index) => {
           let element = {
             accountId: item.accountId,
             postId: item.postId,

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { stateRedux } from "../State/stateRedux";
 import { fn } from "../Functions/fn";
+import { stateConst } from "../State/StateConst";
 
 // let fn = (state) => {
 //   let n = 0;
@@ -140,12 +141,12 @@ const phoneSlice = createSlice({
       let index = state.stateAccounts.accounts[accountIndex].posts[
         postIndex
       ].likes.findIndex((element) => {
-        return element === state.stateAccounts.myAccount.id;
+        return element === state.stateAccounts.myId;
       });
       console.log("Like Index : ", index);
       if (index === -1) {
         state.stateAccounts.accounts[accountIndex].posts[postIndex].likes.push(
-          state.stateAccounts.myAccount.id
+          state.stateAccounts.myId
         );
       } else {
         state.stateAccounts.accounts[accountIndex].posts[
@@ -165,29 +166,37 @@ const phoneSlice = createSlice({
       const accountId = action.payload.accountId;
       const postId = action.payload.postId;
 
-      console.log("SAVE     accountId/postId ", accountId, postId);
-
-      let saveTF = state.stateAccounts.myAccount.savePosts.findIndex(
+      const indexMyAccount = state.stateAccounts.accounts.findIndex(
         (element) => {
-          // console.log(
-          //   "SAVE --- element.postId === postId",
-          //   element.postId,
-          //   ",===,",
-          //   postId
-          // );
-          return element.postId === postId;
+          return element.id === state.stateAccounts.myId;
         }
       );
+      // console.log("SAVE     accountId/postId ", accountId, postId);
+
+      let saveTF = state.stateAccounts.accounts[
+        indexMyAccount
+      ].savePosts.findIndex((element) => {
+        // console.log(
+        //   "SAVE --- element.postId === postId",
+        //   element.postId,
+        //   ",===,",
+        //   postId
+        // );
+        return element.postId === postId;
+      });
 
       if (saveTF === -1) {
         console.log("SAVE    PUSH ");
-        state.stateAccounts.myAccount.savePosts.push({
+        state.stateAccounts.accounts[indexMyAccount].savePosts.push({
           accountId: accountId,
           postId: postId,
         });
       } else {
         console.log("SAVE --- ");
-        state.stateAccounts.myAccount.savePosts.splice(saveTF, 1);
+        state.stateAccounts.accounts[indexMyAccount].savePosts.splice(
+          saveTF,
+          1
+        );
       }
     },
     changeCurrentAccount: (state, action) => {
@@ -304,6 +313,109 @@ const phoneSlice = createSlice({
       //   state.testStateVideo[index].muted = true;
       // }
     },
+    subscribe: (state, action) => {
+      const id = action.payload;
+      console.log("subscribe - id : ", id);
+
+      const indexAccount = state.stateAccounts.accounts.findIndex((element) => {
+        return element.id === id;
+      });
+      const indexMyAccount = state.stateAccounts.accounts.findIndex(
+        (element) => {
+          return element.id === state.stateAccounts.myId;
+        }
+      );
+      console.log(
+        "subscribe - indexAccount/indexMyAccount : ",
+        indexAccount,
+        indexMyAccount
+      );
+      console.log(
+        "subscribe My Subscriptions: indexMyAccount.id ",
+        state.stateAccounts.accounts[indexMyAccount].id,
+        "---",
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[0],
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[1],
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[2],
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[3],
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[4],
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[5],
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[6],
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions[7]
+      );
+      console.log(
+        "subscribe - mySubscriptions.length : ",
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions.length
+      );
+
+      let status = state.stateAccounts.accounts[
+        indexMyAccount
+      ].mySubscriptions.findIndex((element) => {
+        console.log(
+          "subscribe : element ",
+          element,
+          state.stateAccounts.myId,
+          id
+        );
+        return element === id;
+      });
+
+      let status2 = state.stateAccounts.accounts[
+        indexAccount
+      ].myFollowers.findIndex((element) => {
+        console.log(
+          "subscribe : element ",
+          element,
+          state.stateAccounts.myId,
+          id
+        );
+        return element === state.stateAccounts.myId;
+      });
+
+      console.log("subscribe - status  : ", status, status2);
+
+      if (status === -1) {
+        state.stateAccounts.accounts[indexAccount].myFollowers.push(
+          state.stateAccounts.myId
+        );
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions.push(id);
+      } else {
+        state.stateAccounts.accounts[indexAccount].myFollowers.splice(
+          status2,
+          1
+        );
+        state.stateAccounts.accounts[indexMyAccount].mySubscriptions.splice(
+          status,
+          1
+        );
+      }
+      // console.log("subscribe : id/status ===", id, status);
+      // console.log(
+      //   "subscribe : ",
+      //   state.stateAccounts.accounts[indexAccount].mySubscriptions.length,
+      //   state.stateAccounts.accounts[indexMyAccount].mySubscriptions.length
+      // );
+    },
+    changeAddPhoto: (state, action) => {
+      let index = action.payload;
+      console.log("ddd");
+      state.addSelectedPhoto = stateConst.addPhoto[index].photo;
+    },
+    addPost: (state, action) => {
+      let indexMyAccount = state.stateAccounts.accounts.findIndex((element) => {
+        return element.id === state.stateAccounts.myId;
+      });
+      let objectPost = {
+        id: state.stateAccounts.myId + Date.now(),
+        image: state.addSelectedPhoto,
+        text: "ass",
+        likesss: 0,
+        likes: [],
+        comments: 0,
+        save: 0,
+      };
+      state.stateAccounts.accounts[indexMyAccount].posts.unshift(objectPost);
+    },
   },
 });
 
@@ -324,5 +436,8 @@ export const {
   getPositionOnScroll,
   writeReelsScroll,
   changeMutedOnScroll,
+  subscribe,
+  changeAddPhoto,
+  addPost,
 } = phoneSlice.actions;
 export default phoneSlice.reducer;
