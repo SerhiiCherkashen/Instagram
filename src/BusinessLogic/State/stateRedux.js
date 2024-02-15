@@ -61,6 +61,7 @@ export const stateRedux = {
       autoplay: false,
     },
   ],
+  stories: [],
   general: {},
   asd: "HYI /2",
   main: {

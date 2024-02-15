@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import mainContent from "./MainContent.module.css";
-import Story from "./Story/Story";
 import { useDispatch, useSelector } from "react-redux";
 import {
   scroll,
@@ -9,6 +8,7 @@ import {
 } from "../../../../../../BusinessLogic/Redux/PhoneSlice";
 import Posts from "./Posts/Posts";
 import TopLineInst from "./TopLineInst/TopLineInst";
+import Stories from "./Stories/Stories";
 
 const MainContent = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const MainContent = () => {
       onScroll={(e) => handleScroll(e)}
       className={mainContent.mainContent}>
       <TopLineInst />
-      <Story />
+      <Stories />
       <Posts />
     </div>
   );

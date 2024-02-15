@@ -1,0 +1,22 @@
+.stories {
+  /* background-color: rgb(255, 195, 195); */
+  /* height: 230px; */
+  margin-top: 60px;
+  margin-bottom: 0;
+  /* width: 400px; */
+  overflow: hidden;
+  overflow-x: auto;
+  /* display: flex;
+  justify-content: flex-start; */
+}
+.stories::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+/* .wrapStory img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 10px;
+  margin-right: 1px;
+} */

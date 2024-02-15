@@ -416,6 +416,78 @@ const phoneSlice = createSlice({
       };
       state.stateAccounts.accounts[indexMyAccount].posts.unshift(objectPost);
     },
+    doStoryBook: (state) => {
+      state.stories = [];
+      state.stateAccounts.accounts.forEach((element) => {
+        element.stories.forEach((item) => {
+          // if (!item.viewed) {
+          state.stories.push({
+            id: element.id,
+            idStory: item.idStory,
+            viewed: false,
+            image: item.image,
+          });
+          // }
+        });
+      });
+      console.log("doStoryBook");
+    },
+    selectStory: (state, action) => {
+      console.log("Select now !!! ");
+      let indexStories = action.payload;
+      let id = state.stories[indexStories].id;
+      console.log(
+        "Object.keys(state.stories[indexStories]) : ",
+        Object.keys(state.stories[indexStories]),
+        state.stories[indexStories].idStory
+      );
+      let idStory = state.stories[indexStories].idStory;
+      let indexAccount = state.stateAccounts.accounts.findIndex((el) => {
+        return el.id === id;
+      });
+      let indexStoryInAccount = state.stateAccounts.accounts[
+        indexAccount
+      ].stories.findIndex((el) => {
+        console.log("Object.keys(el) : ", Object.keys(el));
+        return el.idStory === idStory;
+      });
+      state.stateAccounts.accounts[indexAccount].stories[
+        indexStoryInAccount
+      ].viewed = true;
+      // console.log("Select  action.payload --- indexStories : ", indexStories);
+      // console.log("Select  indexAccount : ", indexAccount);
+      // console.log("Select  indexStoryInAccount : ", indexStoryInAccount);
+      // console.log("Select  id : ", id);
+      // console.log("Select  idStory : ", idStory);
+      // \
+      // console.log("Select  id : ", state.stories[indexStories].id);
+      // console.log("Select  idStory : ", state.stories[indexStories].idStory);
+      // state.stories[indexStories].id;
+    },
+    firsClickStory: (state) => {
+      let indexAccount = state.stateAccounts.accounts.findIndex((element) => {
+        return element.id === state.stories[0].id;
+      });
+      state.stateAccounts.accounts[indexAccount].stories[0].viewed = true;
+    },
+    accountClickProfilePhoto: (state, action) => {
+      // let id= action.payload.
+      const id = action.payload.id;
+      let indexAccount = state.stateAccounts.accounts.findIndex((element) => {
+        return element.id == id;
+      });
+      console.log("click asd   ", id);
+      //
+      state.stories = [];
+      state.stateAccounts.accounts[indexAccount].stories.forEach((element) => {
+        state.stories.push({
+          id: id,
+          idStory: element.idStory,
+          viewed: false,
+          image: element.image,
+        });
+      });
+    },
   },
 });
 
@@ -439,5 +511,9 @@ export const {
   subscribe,
   changeAddPhoto,
   addPost,
+  doStoryBook,
+  selectStory,
+  firsClickStory,
+  accountClickProfilePhoto,
 } = phoneSlice.actions;
 export default phoneSlice.reducer;

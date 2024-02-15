@@ -11,11 +11,12 @@ import BottomLineInst from "./BottomLineInst/BottomLineInst";
 
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { params } from "../../../BusinessLogic/Redux/PhoneSlice";
+import { doStoryBook, params } from "../../../BusinessLogic/Redux/PhoneSlice";
 import Ribbon from "./components/Account/components/RibbonComponent/components/Ribbon/Ribbon";
 import RibbonComponent from "./components/Account/components/RibbonComponent/RibbonComponent";
 import SavePosts from "./components/Profile/components/TopLineProfile/components/PopUp/components/SavePosts/SavePosts";
 import AddDescribePost from "./components/AddPost/components/СhoicePhoto/AddDescribePost/AddDescribePost";
+import OneStory from "./components/Main/MainContent/Stories/WrapStories/OneStory/OneStory";
 
 function MyComponent() {
   // const dispatch = useDispatch();
@@ -28,16 +29,9 @@ function MyComponent() {
 const Instagram = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  // const [countState, setCountState] = useState(true);
-  // const { pressBack } = useSelector((state) => state.phoneReducer);
 
   useEffect(() => {
     dispatch(params(location.pathname));
-    // console.log(
-    //   "Instagram useEffect   location.pathname : ",
-    //   location.pathname
-    // ); //
-    // setCountState(countState);
   });
   return (
     <div className={inst.inst}>
@@ -52,6 +46,7 @@ const Instagram = () => {
         <Route path="/ribbonComponent" element={<RibbonComponent />}></Route>
         <Route path="/savePosts" element={<SavePosts />}></Route>
         <Route path="/addDescribePost" element={<AddDescribePost />}></Route>
+        <Route path="/oneStory" element={<OneStory />}></Route>
       </Routes>
       <BottomLineInst />
     </div>
