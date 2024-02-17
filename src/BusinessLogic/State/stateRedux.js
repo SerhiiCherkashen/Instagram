@@ -61,6 +61,7 @@ export const stateRedux = {
       autoplay: false,
     },
   ],
+  // desktop: false,
   stories: [],
   general: {},
   asd: "HYI /2",
@@ -72,7 +73,19 @@ export const stateRedux = {
     countFirstRender: true,
     stateLikeDoubleClick: false,
   },
-  search: {},
+  search: {
+    redux: {
+      data: true,
+      status: true,
+      loading: true,
+      error: null,
+    },
+    count: 0,
+    image:
+      "https://habrastorage.org/r/w1560/webt/_r/9s/td/_r9stdeay3lezwapgeknpjhr6xu.jpeg",
+    alt: "-HYI--",
+  },
+  // search: {},
   add: {},
   reels: {},
   profile: {

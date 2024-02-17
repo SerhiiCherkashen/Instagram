@@ -18,13 +18,25 @@
   transform: translate(-50%, -50%);
 }
 .wrapCarouselImg {
-  background-color: green;
+  background-color: rgb(0, 0, 0);
   height: 680px;
   display: flex;
+  justify-content: center;
   align-items: center;
+}
+.wrapImg {
+  width: 404px;
+  height: 680px;
+  overflow: hidden;
+}
+.wrapImg img {
+  width: 100%; /* Заполнять всю ширину контейнера */
+  height: 100%; /* Заполнять всю высоту контейнера */
+  object-fit: cover;
 }
 .wrapCarouselImg img {
   height: 680px;
+  /* width: 100%; */
 }
 .higherImg {
   width: 100%;

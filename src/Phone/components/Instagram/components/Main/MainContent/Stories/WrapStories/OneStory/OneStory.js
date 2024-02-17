@@ -39,8 +39,7 @@ const OneStory = () => {
             ].stories.findIndex((iter) => {
               return iter.viewed === true;
             });
-            // console.log("Carousel : ", indexAccount);
-            // if (testViewed !== -1) {
+
             return (
               <Carousel.Item>
                 <div className={oneStory.wrapCarouselImg}>
@@ -69,7 +68,7 @@ const OneStory = () => {
                       <img src={stateConst.image.instProfilePage.threeDot} />
                     </div>
                   </div>
-                  <div>
+                  <div className={oneStory.wrapImg}>
                     <img
                       className="d-block w-100"
                       src={element.image}
@@ -79,7 +78,6 @@ const OneStory = () => {
                 </div>
               </Carousel.Item>
             );
-            // }
           })}
         </Carousel>
       </div>

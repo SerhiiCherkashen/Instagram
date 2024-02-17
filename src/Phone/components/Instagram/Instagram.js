@@ -17,6 +17,7 @@ import RibbonComponent from "./components/Account/components/RibbonComponent/Rib
 import SavePosts from "./components/Profile/components/TopLineProfile/components/PopUp/components/SavePosts/SavePosts";
 import AddDescribePost from "./components/AddPost/components/СhoicePhoto/AddDescribePost/AddDescribePost";
 import OneStory from "./components/Main/MainContent/Stories/WrapStories/OneStory/OneStory";
+import Desktop from "./components/Desktop/Desktop";
 
 function MyComponent() {
   // const dispatch = useDispatch();
@@ -37,6 +38,10 @@ const Instagram = () => {
     <div className={inst.inst}>
       <MyComponent />
       <Routes>
+        <Route
+          className={inst.route}
+          path="/desktop"
+          element={<Desktop />}></Route>
         <Route className={inst.route} path="/" element={<Main />}></Route>
         <Route path="/search" element={<Search />}></Route>
         <Route path="/addPost" element={<AddPost />}></Route>

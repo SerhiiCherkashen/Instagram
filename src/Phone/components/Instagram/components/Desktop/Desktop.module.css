@@ -1,0 +1,36 @@
+.desktop {
+  background-color: greenyellow;
+  height: 680px;
+  position: relative;
+}
+.desktop img {
+  height: 730px;
+}
+.wrapApps {
+  /* background-color: rgb(131, 203, 231); */
+  position: absolute;
+  top: 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 0fr;
+  gap: 10px;
+}
+.wrapApp {
+  /* background-color: rgb(247, 193, 193); */
+  /* width: 100px; */
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin: 10px; */
+}
+.wrapApp img {
+  /* background-color: white; */
+  border-radius: 20px;
+  width: 65px;
+  height: auto;
+}
+.text {
+  font-size: 17px;
+  font-weight: 500;
+}

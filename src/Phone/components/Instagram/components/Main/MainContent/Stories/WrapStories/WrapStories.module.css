@@ -1,17 +1,11 @@
 .wrapStories {
   /* background-color: rgb(176, 255, 152); */
   /* width: /; */
-  /* height: 100%; */
-  /* margin-top: 60px; */
-  /* overflow: hidden;
-  overflow-y: auto; */
+
   /* overflow: hidden; */
   display: flex;
   justify-content: flex-start;
 }
-/* .stories::-webkit-scrollbar {
-  width: 0;
-} */
 .wrapStory img {
   width: 70px;
   height: 70px;

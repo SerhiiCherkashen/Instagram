@@ -2,4 +2,8 @@
   background-color: rgb(243, 250, 145);
   height: 670px;
   overflow: hidden;
+  overflow-y: auto;
+}
+.search::-webkit-scrollbar {
+  width: 0;
 }

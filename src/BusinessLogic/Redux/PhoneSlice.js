@@ -2,48 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { stateRedux } from "../State/stateRedux";
 import { fn } from "../Functions/fn";
 import { stateConst } from "../State/StateConst";
-
-// let fn = (state) => {
-//   let n = 0;
-//   let accountsIndex = 111;
-//   let postIndex = 222;
-//   while (n < 1000) {
-//     accountsIndex = Math.round(
-//       Math.random() * (state.stateAccounts.accounts.length - 1)
-//     );
-//     postIndex = Math.round(
-//       Math.random() *
-//         (state.stateAccounts.accounts[accountsIndex].posts.length - 1)
-//     );
-//     let result = state.array.findIndex(function (element) {
-//       return (
-//         element.postIndex === postIndex &&
-//         element.accountsIndex === accountsIndex
-//       );
-//     });
-//     console.log("accountsIndex 1:  -------", accountsIndex);
-//     console.log("postIndex 1:  -------", postIndex);
-//     console.log("result 1: ", result);
-//     if (result === -1) {
-//       n = 1000;
-//     }
-//     if (n === 999) {
-//       accountsIndex = "The End";
-//     }
-//     n++;
-
-//     console.log(
-//       "END round ",
-//       n,
-//       "----------------------------------------------------------------------------------------------------"
-//     );
-//   }
-
-//   return {
-//     accountsIndex,
-//     postIndex,
-//   };
-// };
+import { axiosFn, fetchData } from "../Functions/searchFn";
 
 const state = stateRedux;
 const phoneSlice = createSlice({
@@ -71,47 +30,14 @@ const phoneSlice = createSlice({
         if (random.accountIndex === "The End") {
           return;
         } else {
-          state.array.push(
-            {
-              accountId: state.stateAccounts.accounts[random.accountIndex].id,
-              postId:
-                state.stateAccounts.accounts[random.accountIndex].posts[
-                  random.postIndex
-                ].id,
-            }
-            // state.stateAccounts.accounts[random.accountIndex].posts[
-            //   random.postIndex
-            // ]
-            // {
-            //
-            //
-            //
-            // accountIndex: random.accountIndex,
-            // postIndex: random.postIndex,
-            // id: state.stateAccounts.accounts[random.accountIndex].id,
-            // name: state.stateAccounts.accounts[random.accountIndex].name,
-            // profilePhoto:
-            //   state.stateAccounts.accounts[random.accountIndex].profilePhoto,
-            // post: state.stateAccounts.accounts[random.accountIndex].posts[
-            //   random.postIndex
-            // ],
-            //-----------------------------------------
-            // likes:
-            //   state.stateAccounts.accounts[random.accountsIndex].posts[
-            //     random.postIndex
-            //   ].likes,
-            // likes:
-            //   state.stateAccounts.accounts[random.accountsIndex].posts[
-            //     random.postIndex
-            //   ].likes,
-            // image:
-            //   state.stateAccounts.accounts[random.accountsIndex].posts[
-            //     random.postIndex
-            //   ].image,
-            // }
-          );
+          state.array.push({
+            accountId: state.stateAccounts.accounts[random.accountIndex].id,
+            postId:
+              state.stateAccounts.accounts[random.accountIndex].posts[
+                random.postIndex
+              ].id,
+          });
         }
-        // console.log("Scroll   state.array.length ", state.array.length);
       }
     },
     changeFirstRender: (state) => {
@@ -176,18 +102,12 @@ const phoneSlice = createSlice({
       let saveTF = state.stateAccounts.accounts[
         indexMyAccount
       ].savePosts.findIndex((element) => {
-        // console.log(
-        //   "SAVE --- element.postId === postId",
-        //   element.postId,
-        //   ",===,",
-        //   postId
-        // );
         return element.postId === postId;
       });
 
       if (saveTF === -1) {
         console.log("SAVE    PUSH ");
-        state.stateAccounts.accounts[indexMyAccount].savePosts.push({
+        state.stateAccounts.accounts[indexMyAccount].savePosts.unshift({
           accountId: accountId,
           postId: postId,
         });
@@ -488,6 +408,15 @@ const phoneSlice = createSlice({
         });
       });
     },
+    clickButton: (state) => {
+      let result = fetchData();
+      // let data = axiosFn();
+      // setTimeout(() => {
+      //   console.log("BTN", data);
+      // }, 1000);
+      console.log("BTN", result);
+      state.search.count++;
+    },
   },
 });
 
@@ -515,5 +444,6 @@ export const {
   selectStory,
   firsClickStory,
   accountClickProfilePhoto,
+  clickButton,
 } = phoneSlice.actions;
 export default phoneSlice.reducer;

@@ -39,11 +39,6 @@ const ContentProfile = (props) => {
       ) : (
         <div className={contentPr.contentPr}>
           {currentAccount.posts.map((element, index) => {
-            // console.log(
-            //   "Account ContentProfile element : ",
-            //   Object.keys(element),
-            //   element
-            // );
             let asd;
             if (element.status === "video") {
               asd = element.poster;

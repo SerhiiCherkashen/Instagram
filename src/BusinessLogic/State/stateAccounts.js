@@ -65,35 +65,40 @@ export const stateAccounts = {
         },
       ],
       stories: [
-        // {
-        //   id: "_serhii_007_",
-        //   image: "https://oboi-telefon.ru/wallpapers/133276/33150.jpg",
-        // },
-        // {
-        //   id: "_serhii_007_",
-        //   image:
-        //     "https://bipbap.ru/wp-content/uploads/2018/06/android-phone-wallpaper3-600x1066.jpg",
-        // },
-        // {
-        //   id: "_serhii_007_",
-        //   image: "https://bipbap.ru/wp-content/uploads/2021/06/Aosp8.jpg",
-        // },
-        // //
-        // {
-        //   id: "_serhii_007_",
-        //   image:
-        //     "https://weblinks.ru/wp-content/uploads/2021/04/8969888dc273572829bdc8523932aad4.jpg",
-        // },
-        // {
-        //   id: "_serhii_007_",
-        //   image:
-        //     "https://kartinki.pics/src.php?src=https://kartinki.pics/pics/uploads/posts/2022-08/thumbs/1660018377_1-kartinkin-net-p-zastavka-na-tri-monitora-krasivo-1.jpg&w=315&h=455",
-        // },
-        // {
-        //   id: "_serhii_007_",
-        //   image:
-        //     "https://kartinki.pibig.info/uploads/posts/2023-12/thumbs/1701739280_kartinki-pibig-info-p-krasivie-zimnie-kartinki-na-telefon-oboi-41.jpg",
-        // },
+        {
+          idStory: "story_serhii_007_1",
+          viewed: false,
+          image: "https://oboi-telefon.ru/wallpapers/133276/33150.jpg",
+        },
+        {
+          idStory: "story_serhii_007_2",
+          viewed: false,
+          image:
+            "https://bipbap.ru/wp-content/uploads/2018/06/android-phone-wallpaper3-600x1066.jpg",
+        },
+        {
+          idStory: "story_serhii_007_3",
+          viewed: false,
+          image: "https://bipbap.ru/wp-content/uploads/2021/06/Aosp8.jpg",
+        },
+        {
+          idStory: "story_serhii_007_4",
+          viewed: false,
+          image:
+            "https://weblinks.ru/wp-content/uploads/2021/04/8969888dc273572829bdc8523932aad4.jpg",
+        },
+        {
+          idStory: "story_serhii_007_5",
+          viewed: false,
+          image:
+            "https://kartinki.pics/src.php?src=https://kartinki.pics/pics/uploads/posts/2022-08/thumbs/1660018377_1-kartinkin-net-p-zastavka-na-tri-monitora-krasivo-1.jpg&w=315&h=455",
+        },
+        {
+          idStory: "story_serhii_007_6",
+          viewed: false,
+          image:
+            "https://kartinki.pibig.info/uploads/posts/2023-12/thumbs/1701739280_kartinki-pibig-info-p-krasivie-zimnie-kartinki-na-telefon-oboi-41.jpg",
+        },
       ],
       savePosts: [
         // {
@@ -107,6 +112,10 @@ export const stateAccounts = {
         {
           accountId: "azov.media",
           postId: "azov.media3",
+        },
+        {
+          accountId: "motoCross",
+          postId: "motoCross6",
         },
       ],
     },
@@ -283,7 +292,6 @@ export const stateAccounts = {
       stories: [
         {
           idStory: "story_leomessi_1",
-          // idStory: "story_leomessi_1",
           viewed: false,
           image:
             "https://images.pexels.com/photos/1563256/pexels-photo-1563256.jpeg?cs=srgb&dl=pexels-ricky-esquivel-1563256.jpg&fm=jpg",
@@ -302,143 +310,142 @@ export const stateAccounts = {
         },
       ],
     },
-    // {
-    //   id: "motoCross",
-    //   name: "Moto My Life",
-    //   profilePhoto:
-    //     "https://www.shutterstock.com/image-vector/vector-motocross-rider-on-motorcycle-600w-2290016003.jpg",
-    //   mySubscriptions: ["asd", "qwerty", "lsd"],
-    //   myFollowers: ["qqq"],
-    //   stories: [],
-    //   posts: [
-    //     {
-    //       id: "motoCross1",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.video,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       id: "motoCross2",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.motoVideo,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       id: "motoCross3",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.motoVideo2,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     //
-    //     {
-    //       id: "motoCross4",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.motoVideo3,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       id: "motoCross5",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.motoVideo4,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       id: "motoCross6",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.motoVideo5,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       id: "motoCross7",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.motoVideo6,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       id: "motoCross8",
-    //       status: "video",
-    //       poster: stateConst.image.all.posterMoto2,
-    //       video: stateConst.video.motoVideo7,
-    //       muted: true,
-    //       autoplay: false,
-    //       text: "asd Video",
-    //       likesss: 0,
-    //       likes: [],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //   ],
-    //   stories: [
-    //     {
-    //       idStory: "story_motoCross-1",
-    //       viewed: false,
-    //       image:
-    //         "https://img.freepik.com/free-photo/vertical-shot-of-a-motorbike-on-the-road-with-the-beautiful-view-of-mountains-on-kauai-hawaii_181624-35457.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1707696000&semt=sph",
-    //     },
-    //     {
-    //       idStory: "story_motoCross-2",
-    //       viewed: false,
-    //       image:
-    //         "https://hdpic.club/uploads/posts/2022-01/1642658158_34-hdpic-club-p-za-rulem-mototsikla-nochyu-70.jpg",
-    //     },
-    //     {
-    //       idStory: "story_motoCross-3",
-    //       viewed: false,
-    //       image:
-    //         "https://img.freepik.com/premium-photo/biker-rides-a-motorcycle-in-the-rain-first-person-view_564276-11343.jpg",
-    //     },
-    //   ],
-    // },
-    //
+    {
+      id: "motoCross",
+      name: "Moto My Life",
+      profilePhoto:
+        "https://www.shutterstock.com/image-vector/vector-motocross-rider-on-motorcycle-600w-2290016003.jpg",
+      mySubscriptions: ["asd", "qwerty", "lsd"],
+      myFollowers: ["qqq"],
+      stories: [],
+      posts: [
+        {
+          id: "motoCross1",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.video,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+        {
+          id: "motoCross2",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.motoVideo,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+        {
+          id: "motoCross3",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.motoVideo2,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+        //
+        {
+          id: "motoCross4",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.motoVideo3,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+        {
+          id: "motoCross5",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.motoVideo4,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+        {
+          id: "motoCross6",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.motoVideo5,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+        {
+          id: "motoCross7",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.motoVideo6,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+        {
+          id: "motoCross8",
+          status: "video",
+          poster: stateConst.image.all.posterMoto2,
+          video: stateConst.video.motoVideo7,
+          muted: true,
+          autoplay: false,
+          text: "asd Video",
+          likesss: 0,
+          likes: [],
+          comments: 3,
+          save: 2,
+        },
+      ],
+      stories: [
+        {
+          idStory: "story_motoCross-1",
+          viewed: false,
+          image:
+            "https://img.freepik.com/free-photo/vertical-shot-of-a-motorbike-on-the-road-with-the-beautiful-view-of-mountains-on-kauai-hawaii_181624-35457.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1707696000&semt=sph",
+        },
+        {
+          idStory: "story_motoCross-2",
+          viewed: false,
+          image:
+            "https://hdpic.club/uploads/posts/2022-01/1642658158_34-hdpic-club-p-za-rulem-mototsikla-nochyu-70.jpg",
+        },
+        {
+          idStory: "story_motoCross-3",
+          viewed: false,
+          image:
+            "https://img.freepik.com/premium-photo/biker-rides-a-motorcycle-in-the-rain-first-person-view_564276-11343.jpg",
+        },
+      ],
+    },
     {
       id: "ufc",
       name: "UFC",
@@ -537,7 +544,7 @@ export const stateAccounts = {
           save: 2,
         },
         {
-          id: "ufc8",
+          id: "ufc10",
           image:
             "https://cdn.segodnya.ua/i/original/media/image/5e2/1df/68c/5e21df68c3b01.jpg.webp",
           text: "asd",
@@ -743,54 +750,109 @@ export const stateAccounts = {
         //   save: 2,
         // },
       ],
-      stories: [],
+      stories: [
+        {
+          idStory: "story_azov.media_1",
+          viewed: false,
+          image:
+            "https://azov.org.ua/wp-content/uploads/2022/05/photo5188324935020428622.jpg",
+        },
+        {
+          idStory: "story_azov.media_2",
+          viewed: false,
+          image:
+            "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/Q2UU4JR5W5NIPBHNMTD2C3JABQ.jpg",
+        },
+        {
+          idStory: "story_azov.media_3",
+          viewed: false,
+          image:
+            "https://s.ura.news/1200_900/images/news/upload/news/573/552/1052573552/715945_Mariupoly_Mariupoly_mariupoly_azovstaly_250x0_6000.3380.0.0.jpg",
+        },
+        {
+          idStory: "story_azov.media_4",
+          viewed: false,
+          image: "https://gmk.center/wp-content/uploads/2019/06/azovstal.jpg",
+        },
+        {
+          idStory: "story_azov.media_5",
+          viewed: false,
+          image:
+            "https://img.lemde.fr/2023/06/05/110/0/2953/1476/1440/720/60/0/65a9547_1685968867636-pavuk-5.jpg",
+        },
+        {
+          idStory: "story_azov.media_6",
+          viewed: false,
+          image:
+            "https://focus.ua/static/storage/thumbs/920x465/7/5c/b556dafc-968d224300f54040d318f253107ea5c7.jpg?v=3199_1",
+        },
+      ],
     },
-    // {
-    //   id: "therock",
-    //   name: "Dwayne Johnson",
-    //   profilePhoto:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Dwayne_Johnson_2%2C_2013.jpg/279px-Dwayne_Johnson_2%2C_2013.jpg",
-    //   mySubscriptions: ["asd", "qwerty", "lsd"],
-    //   myFollowers: ["qqq"],
-    //   stories: [],
-    //   posts: [
-    //     {
-    //       image:
-    //         "https://images.delfi.ee/media-api-image-cropper/v1/1d2bbff0-f3b5-11ed-bac7-b7ede865fd69.jpg?noup&w=1200&h=711",
-    //       text: "asd",
-    //       likesss: 123,
-    //       likes: ["asd", " qwerty", " aaa"],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       image:
-    //         "https://afisha.bigmir.net/i/54/73/26/8/5473268/image_main/9708fd294f3b92b5ddef196c38c2ce9d-quality_75Xresize_crop_1Xallow_enlarge_0Xw_790Xh_445.jpg",
-    //       text: "asd",
-    //       likesss: 123,
-    //       likes: ["asd", " qwerty", " aaa"],
-    //       comments: 3,
-    //       save: 2,
-    //     },
-    //     {
-    //       image: "https://www.mzk2.ru/wp-content/uploads/2019/11/skala-2.jpg",
-    //       text: "asd",
-    //       likesss: 123,
-    //       likes: ["asd", " qwerty", " aaa"],
-    //       comments: 3,
-    //       save: 2,
-    //     },
+    {
+      id: "therock",
+      name: "Dwayne Johnson",
+      profilePhoto:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Dwayne_Johnson_2%2C_2013.jpg/279px-Dwayne_Johnson_2%2C_2013.jpg",
+      mySubscriptions: ["asd", "qwerty", "lsd"],
+      myFollowers: ["qqq"],
+      stories: [],
+      posts: [
+        {
+          image:
+            "https://images.delfi.ee/media-api-image-cropper/v1/1d2bbff0-f3b5-11ed-bac7-b7ede865fd69.jpg?noup&w=1200&h=711",
+          text: "asd",
+          likesss: 123,
+          likes: ["asd", " qwerty", " aaa"],
+          comments: 3,
+          save: 2,
+        },
+        {
+          image:
+            "https://afisha.bigmir.net/i/54/73/26/8/5473268/image_main/9708fd294f3b92b5ddef196c38c2ce9d-quality_75Xresize_crop_1Xallow_enlarge_0Xw_790Xh_445.jpg",
+          text: "asd",
+          likesss: 123,
+          likes: ["asd", " qwerty", " aaa"],
+          comments: 3,
+          save: 2,
+        },
+        {
+          image: "https://www.mzk2.ru/wp-content/uploads/2019/11/skala-2.jpg",
+          text: "asd",
+          likesss: 123,
+          likes: ["asd", " qwerty", " aaa"],
+          comments: 3,
+          save: 2,
+        },
 
-    //     // {
-    //     //   image: "http",
-    //     //   text: "asd",
-    //     //   likes: 10,
-    //     //   comments: 3,
-    //     //   save: 2,
-    //     // },
-    //   ],
-    //   stories: [],
-    // },
+        // {
+        //   image: "http",
+        //   text: "asd",
+        //   likes: 10,
+        //   comments: 3,
+        //   save: 2,
+        // },
+      ],
+      stories: [
+        {
+          idStory: "story_therock_1",
+          viewed: false,
+          image:
+            "https://assets.vogue.com/photos/59132f18dc6868483f55b55a/master/w_2560%2Cc_limit/00-lede-the-rock.jpg",
+        },
+        {
+          idStory: "story_therock_2",
+          viewed: false,
+          image:
+            "https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/canvas/2023/11/23/1652b5e8-e561-430c-9501-234f928b92c1_b4ab5494.jpg?itok=ZwSv4nF6&v=1700729375",
+        },
+        {
+          idStory: "story_therock_3",
+          viewed: false,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/The_Rock_2023.jpg/640px-The_Rock_2023.jpg",
+        },
+      ],
+    },
   ],
   currentAccount: {
     id: "azov.media",

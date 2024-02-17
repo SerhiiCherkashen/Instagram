@@ -67,14 +67,17 @@ const OnePost = (props) => {
                   }
                   className={onePost.id}>
                   <Link
-                    style={{ textDecoration: "none", color: "black" }}
+                    style={{ textDecoration: "none", color: "white" }}
                     to="/account">
                     {accounts[accountIndex].id}
                   </Link>
                 </div>
               </div>
               <div>
-                <img src={stateConst.image.instProfilePage.threeDot} />
+                <img
+                  // style={{ color: "white" }}
+                  src={stateConst.image.instProfilePage.threeDot}
+                />
               </div>
             </div>
           </div>
@@ -136,31 +139,6 @@ const OnePost = (props) => {
                 </div>
               </div>
             </div>
-            {/*  */}
-            {/* <img
-              onClick={() => {
-                if (count === 1) {
-                  dispatch(likeDoubleClick());
-                  dispatch(
-                    like({
-                      accountIndex: accountIndex,
-                      postIndex: postIndex,
-                    })
-                  );
-                  setTimeout(() => {
-                    dispatch(likeDoubleClick());
-                  }, 500);
-
-                  console.log("TWO CLICK");
-                } else {
-                  setTimeout(() => {
-                    count = 0;
-                  }, 500);
-                }
-                count++;
-              }}
-              src={`${accounts[accountIndex].posts[postIndex].image}`}
-            /> */}
           </div>
         </>
       ) : (
@@ -260,7 +238,6 @@ const OnePost = (props) => {
                   : stateConst.image.instProfilePage.save
               }
             />
-            {/*  */}
           </div>
         </div>
         <div className={onePost.countLike}>

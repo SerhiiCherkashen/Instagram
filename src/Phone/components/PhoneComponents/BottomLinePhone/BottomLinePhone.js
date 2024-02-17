@@ -22,7 +22,9 @@ const BottomLinePhone = () => {
         </Link>
       </div>
       <div className={bottomLPh.asd}>
-        <img src={stateConst.image.phoneBottomIcon.round} />
+        <Link to="/desktop">
+          <img src={stateConst.image.phoneBottomIcon.round} />
+        </Link>
       </div>
       <div className={bottomLPh.asd}>
         <img src={stateConst.image.phoneBottomIcon.square} />

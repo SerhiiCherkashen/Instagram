@@ -93,4 +93,97 @@ export const stateConst = {
       photo: "https://nikvesti.com/images/imageeditor/2022/5/19//248457_1.jpeg",
     },
   ],
+  imageApp: {
+    bottomLine: [
+      {
+        text: "SMS",
+        image:
+          "https://w7.pngwing.com/pngs/257/869/png-transparent-iphone-x-imessage-multimedia-messaging-service-sms-messages-miscellaneous-multimedia-messaging-service-grass-thumbnail.png",
+      },
+      {
+        text: "Phone",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/7/7e/Phone_iOS.png",
+      },
+      {
+        text: "Camera",
+        image:
+          "https://icon-library.com/images/iphone-camera-icon-png/iphone-camera-icon-png-6.jpg",
+      },
+    ],
+    app: [
+      {
+        text: "Twitter",
+        image:
+          "https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_twitter-512.png",
+        src: "https://twitter.com/",
+      },
+      {
+        text: "WhatsApp",
+        image:
+          "https://e7.pngegg.com/pngimages/829/586/png-clipart-whatsapp-logo-whatsapp-logo-desktop-computer-icons-viber-grass-viber.png",
+        src: "https://www.whatsapp.com/?lang=uk",
+      },
+      {
+        text: "Facebook",
+        image: "https://cdn.jim-nielsen.com/ios/512/facebook-2019-05-21.png",
+        src: "https://www.facebook.com/",
+      },
+      {
+        text: "Chrome",
+        image:
+          "https://www.iconarchive.com/download/i95295/dtafalonso/android-l/Chrome.512.png",
+        src: "https://www.google.com/intl/ru/chrome/",
+      },
+      {
+        text: "Settings",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Settings_%28iOS%29.png/600px-Settings_%28iOS%29.png",
+        src: "https://www.youtube.com/",
+      },
+      {
+        text: "Play market",
+        image:
+          "https://cdn.iconscout.com/icon/free/png-256/free-google-play-11-722703.png",
+        src: "https://www.youtube.com/",
+      },
+      {
+        text: "Discord",
+        image:
+          "https://static-00.iconduck.com/assets.00/discord-icon-2048x2048-nnt62s2u.png",
+        src: "https://discord.com/",
+      },
+      {
+        text: "Tik-Tok",
+        image:
+          "https://static.vecteezy.com/system/resources/previews/018/930/463/original/tiktok-logo-tikok-icon-transparent-tikok-app-logo-free-png.png",
+        src: "https://www.youtube.com/",
+      },
+      {
+        text: "Snapchat",
+        image:
+          "https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xNC5wbmc.png",
+        src: "https://www.snapchat.com/ru-RU",
+      },
+      {
+        text: "YouTube",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGiB9k16YIHsq8Jz302d1YTOFqRsv1s4Zvag&usqp=CAU",
+        src: "https://www.youtube.com/",
+      },
+
+      {
+        text: "Instagram",
+        image:
+          "https://www.drupal.org/files/styles/grid-3-2x/public/project-images/unnamed_1.png?itok=C8Nl5DmI",
+        src: "https://www.youtube.com/",
+      },
+      {
+        text: "Telegram",
+        image:
+          "https://static.vecteezy.com/system/resources/previews/026/127/326/original/telegram-logo-telegram-icon-transparent-social-media-icons-free-png.png",
+        src: "https://web.telegram.org/k/",
+      },
+    ],
+  },
 };
