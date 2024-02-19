@@ -38,11 +38,7 @@ const DataProfile = (props) => {
     return element.viewed === false;
   });
 
-  // if (status !== -1) {
-
   return (
-    // <>
-    //   {account.id === "_serhii_007_" ? }</>
     <div className={dataP.dataP}>
       <div className={dataP.imgFollowers}>
         <div onClick={() => dispatch(accountClickProfilePhoto(account))}>
@@ -82,12 +78,14 @@ const DataProfile = (props) => {
         <div>
           <div className={dataP.number}>
             {stateAccounts.accounts[indexCurrentAccount].myFollowers.length}
+            {/* {3.2 + "B"} */}
           </div>
           <div className={dataP.text}>chitachi</div>
         </div>
         <div>
           <div className={dataP.number}>
             {stateAccounts.accounts[indexCurrentAccount].mySubscriptions.length}
+            {/* {365 + "M"} */}
           </div>
           <div className={dataP.text}>ctejit</div>
         </div>

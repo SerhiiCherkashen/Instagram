@@ -11,7 +11,7 @@ const TopLineRibbon = () => {
         <Link to="/account">
           <img src={stateConst.image.instProfilePage.back} />
         </Link>
-        <div>Dopisi</div>
+        <div>Dopisy</div>
       </div>
       <div className={topLR.right}> </div>
     </div>

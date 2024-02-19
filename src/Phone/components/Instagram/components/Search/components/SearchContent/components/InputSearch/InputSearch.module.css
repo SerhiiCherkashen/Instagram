@@ -1,5 +1,16 @@
 .inputS {
-  background-color: rgb(145, 219, 138);
-  height: 100px;
+  /* background-color: rgb(145, 219, 138); */
+  /* height: 30px; */
   overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+input {
+  width: 90%;
+  /* height: 90px; */
+  padding-left: 30px;
+  /* font-size: 85px; */
+  font-weight: 600;
 }

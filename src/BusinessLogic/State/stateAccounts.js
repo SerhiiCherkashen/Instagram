@@ -10,7 +10,7 @@ export const stateAccounts = {
       profilePhoto:
         "https://img8.eadaily.com/r650x400/o/7ab/90ba0d43a1639d2b94b161ef6331b.jpeg",
       mySubscriptions: ["_messi_", "_messi_", "_messi_"],
-      myFollowers: ["qqq"],
+      myFollowers: ["a"],
       stories: [],
       posts: [
         {

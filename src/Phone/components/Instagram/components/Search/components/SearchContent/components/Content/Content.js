@@ -1,58 +1,39 @@
 import React, { useEffect } from "react";
 import content from "./Content.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { clickButton } from "../../../../../../../../../BusinessLogic/Redux/PhoneSlice";
-import { axiosFn } from "../../../../../../../../../BusinessLogic/Functions/searchFn";
-import axios from "axios";
 import {
-  axiosData,
-  changeCount,
+  firstFetchData,
+  changeFirstSearch,
 } from "../../../../../../../../../BusinessLogic/Redux/SearchSlice";
+import { Link } from "react-router-dom";
 
 const Content = () => {
   const dispatch = useDispatch();
-  const { redux, count, image } = useSelector((state) => state.searchReducer);
-  const url1 = "https://randomfox.ca/floof/";
+  const { error, data, array, countFirstRender } = useSelector(
+    (state) => state.searchReducer
+  );
 
-  console.log("count, redux.data", count, redux.data, redux.loading);
-  // console.log("Object.keys(search) ", Object.keys(redux.data));
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       // Выполнение GET запроса
-  //       const response = await axios.get(url1);
-  //       console.log("Trtue fetching data:", response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   // Вызов функции для выполнения запроса
-  //   fetchData();
-  // }, []); // Пустой массив зависимостей означает, что эффект будет выполнен только при монтировании компонента
+  // console.log("Content array /length : ", array, array[0].photos.length);
 
   useEffect(() => {
-    dispatch(axiosData());
+    {
+      countFirstRender === 0 && dispatch(firstFetchData());
+    }
   }, [dispatch]);
   return (
     <div className={content.content}>
-      <h1>Content</h1>
-      <h1>{count}</h1>
-      hyi
-      <h1> {`   ${redux.loading} `} </h1>
-      <h1> {`   ${redux.data} `} </h1>
-      asd
-      <img src={`${image}`} alt={"---"} />
-      <button
-        onClick={() => {
-          // axiosFn();
-          console.log("click");
-          dispatch(axiosData());
-          dispatch(changeCount());
-          // dispatch(clickButton());
-        }}>
-        CLICK
-      </button>
+      {error && <h1>Nevernyy Search</h1>}
+      {data &&
+        array[0].photos.map((element, index) => {
+          console.log("Map search img");
+          return (
+            <div key={index + Date.now()} className={content.wrapImg}>
+              <Link to="/searchRibbonWrap">
+                <img src={element.src.large} />
+              </Link>
+            </div>
+          );
+        })}
     </div>
   );
 };

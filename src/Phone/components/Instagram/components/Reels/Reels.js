@@ -18,10 +18,8 @@ const Reels = () => {
     <div
       onScroll={(e) => {
         console.log(e.target.scrollTop);
-        // dispatch(writeReelsScroll(e.target.scrollTop));
       }}
       className={reels.reels}>
-      <h1>Reels</h1>
       <WrapVideos />
     </div>
   );

@@ -1,0 +1,93 @@
+.searchOP {
+  /* background-color: rgb(112, 138, 120); */
+  /* padding-bottom: 10px; */
+  /* margin: 20px; */
+}
+.higherImg {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoId {
+  width: 140px;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.logoId img {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+.logoId .id {
+  font-weight: 600;
+  font-size: 20px;
+  margin-left: 20px;
+}
+img {
+  width: 100%;
+}
+.wrapUnderPhoto {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding: 10px;
+}
+.lcsSave {
+  display: flex;
+  justify-content: space-between;
+}
+.likeCommentShare {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+}
+.likeCommentShare img {
+  width: 30px;
+}
+.countLike {
+  font-size: 20px;
+}
+.wrapLike {
+  position: relative;
+}
+.likeDoubleClick {
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.video {
+  /* background-color: darkblue; */
+  /* height: 700px; */
+}
+.wrapHigherImgVideo {
+  position: relative;
+}
+.higherImgVideo {
+  width: 96%;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  /* left: 100px;
+    top: 100px; */
+  z-index: 3;
+}
+.wrapSwitchSound {
+  position: relative;
+}
+.sound {
+  background-color: gray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}

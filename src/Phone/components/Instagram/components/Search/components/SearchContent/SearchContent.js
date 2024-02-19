@@ -6,7 +6,6 @@ import Content from "./components/Content/Content";
 const SearchContent = () => {
   return (
     <div className={searchC.searchC}>
-      <h1>SearchContent</h1>
       <InputSearch />
       <Content />
     </div>

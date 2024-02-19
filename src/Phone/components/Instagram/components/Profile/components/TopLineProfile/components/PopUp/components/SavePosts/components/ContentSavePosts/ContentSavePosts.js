@@ -15,7 +15,6 @@ const ContentSavePosts = (props) => {
 
   return (
     <div>
-      <h1>ContentSavePosts</h1>
       <div className={contentSP.contentSP}>
         {stateAccounts.accounts[indexMyAccount].savePosts.map((item, index) => {
           let element = {
@@ -26,9 +25,6 @@ const ContentSavePosts = (props) => {
             <div key={index + Date.now()}>
               <OnePost element={element} />
             </div>
-            // <div key={index + Date.now()}>
-            // <OnePostSaveProfile element={element} />
-            // </div>
           );
         })}
       </div>

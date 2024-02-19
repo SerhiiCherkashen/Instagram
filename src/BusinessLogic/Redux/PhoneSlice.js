@@ -350,10 +350,11 @@ const phoneSlice = createSlice({
           // }
         });
       });
-      console.log("doStoryBook");
+      // console.log("doStoryBook");
     },
     selectStory: (state, action) => {
-      console.log("Select now !!! ");
+      console.log("Select now !!! ", action.payload);
+      state.main.activeIndex = action.payload;
       let indexStories = action.payload;
       let id = state.stories[indexStories].id;
       console.log(
@@ -374,21 +375,32 @@ const phoneSlice = createSlice({
       state.stateAccounts.accounts[indexAccount].stories[
         indexStoryInAccount
       ].viewed = true;
-      // console.log("Select  action.payload --- indexStories : ", indexStories);
-      // console.log("Select  indexAccount : ", indexAccount);
-      // console.log("Select  indexStoryInAccount : ", indexStoryInAccount);
-      // console.log("Select  id : ", id);
-      // console.log("Select  idStory : ", idStory);
-      // \
-      // console.log("Select  id : ", state.stories[indexStories].id);
-      // console.log("Select  idStory : ", state.stories[indexStories].idStory);
-      // state.stories[indexStories].id;
     },
-    firsClickStory: (state) => {
+
+    firsClickStory: (state, action) => {
+      // console.log("first Click", action.payload);
       let indexAccount = state.stateAccounts.accounts.findIndex((element) => {
         return element.id === state.stories[0].id;
       });
-      state.stateAccounts.accounts[indexAccount].stories[0].viewed = true;
+    },
+    chooseActiveIndexStories: (state, action) => {
+      console.log("a", action.payload);
+      let indexAccount = action.payload;
+      if (indexAccount === 0) {
+        state.main.activeIndex = 0;
+      } else {
+        let index = 0;
+        for (let i = 0; i < indexAccount; i++) {
+          index += state.stateAccounts.accounts[i].stories.length;
+          console.log(
+            "index : ",
+            index,
+            state.stateAccounts.accounts[i].stories.length
+          );
+        }
+        state.main.activeIndex = index;
+        state.stateAccounts.accounts[indexAccount].stories[0].viewed = true;
+      }
     },
     accountClickProfilePhoto: (state, action) => {
       // let id= action.payload.
@@ -407,6 +419,7 @@ const phoneSlice = createSlice({
           image: element.image,
         });
       });
+      state.main.activeIndex = 0;
     },
     clickButton: (state) => {
       let result = fetchData();
@@ -445,5 +458,6 @@ export const {
   firsClickStory,
   accountClickProfilePhoto,
   clickButton,
+  chooseActiveIndexStories,
 } = phoneSlice.actions;
 export default phoneSlice.reducer;

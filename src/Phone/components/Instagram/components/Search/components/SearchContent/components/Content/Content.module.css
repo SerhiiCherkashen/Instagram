@@ -1,5 +1,18 @@
 .content {
-  background-color: rgb(145, 219, 138);
-  height: 1000px;
-  /* overflow: hidden; */
+  /* background-color: rgb(145, 219, 138); */
+  /* height: 2000px; */
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  /* grid-template-rows: 0; */
+}
+.wrapImg {
+  height: 100px;
+  overflow: hidden;
+}
+.wrapImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

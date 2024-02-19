@@ -2,7 +2,10 @@ import React from "react";
 import wrapStories from "./WrapStories.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { firsClickStory } from "../../../../../../../../BusinessLogic/Redux/PhoneSlice";
+import {
+  chooseActiveIndexStories,
+  firsClickStory,
+} from "../../../../../../../../BusinessLogic/Redux/PhoneSlice";
 
 const WrapStories = () => {
   const dispatch = useDispatch();
@@ -20,7 +23,10 @@ const WrapStories = () => {
             return (
               <div
                 key={index + Date.now()}
-                onClick={() => dispatch(firsClickStory())}
+                onClick={() => {
+                  dispatch(firsClickStory());
+                  dispatch(chooseActiveIndexStories(index));
+                }}
                 className={wrapStories.wrapStory}>
                 <Link to="/oneStory">
                   <img

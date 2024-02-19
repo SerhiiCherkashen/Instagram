@@ -197,8 +197,6 @@ const OnePost = (props) => {
           </div>
         </>
       )}
-
-      {/*  */}
       <div className={onePost.wrapUnderPhoto}>
         <div className={onePost.lcsSave}>
           <div className={onePost.likeCommentShare}>

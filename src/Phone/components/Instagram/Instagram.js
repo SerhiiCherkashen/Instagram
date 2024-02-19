@@ -18,7 +18,7 @@ import SavePosts from "./components/Profile/components/TopLineProfile/components
 import AddDescribePost from "./components/AddPost/components/СhoicePhoto/AddDescribePost/AddDescribePost";
 import OneStory from "./components/Main/MainContent/Stories/WrapStories/OneStory/OneStory";
 import Desktop from "./components/Desktop/Desktop";
-
+import SearchRibbonWrap from "./components/Search/components/SearchContent/components/Content/SearchRibbonWrap/SearchRibbonWrap";
 function MyComponent() {
   // const dispatch = useDispatch();
   // const location = useLocation();
@@ -44,6 +44,7 @@ const Instagram = () => {
           element={<Desktop />}></Route>
         <Route className={inst.route} path="/" element={<Main />}></Route>
         <Route path="/search" element={<Search />}></Route>
+        <Route path="/searchRibbonWrap" element={<SearchRibbonWrap />}></Route>
         <Route path="/addPost" element={<AddPost />}></Route>
         <Route path="/reels" element={<Reels />}></Route>
         <Route path="/profile" element={<Profile />}></Route>

@@ -1,12 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { stateConst } from "../../../../../../../BusinessLogic/State/StateConst";
-import { mute } from "react-html5video";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  changeMutedOnScroll,
-  getPositionOnScroll,
-  mutedSwitch,
-} from "../../../../../../../BusinessLogic/Redux/PhoneSlice";
+import { mutedSwitch } from "../../../../../../../BusinessLogic/Redux/PhoneSlice";
+import oneVideo from "./OneVideo.module.css";
+import { stateConst } from "../../../../../../../BusinessLogic/State/StateConst";
 
 const OneVideo = (props) => {
   const dispatch = useDispatch();
@@ -14,58 +10,19 @@ const OneVideo = (props) => {
     (state) => state.phoneReducer
   );
 
-  // const targetRef = useRef(null);
-
-  // const getPosition = (id) => {
-  //   const targetElement = targetRef.current;
-  //   if (targetElement) {
-  //     const { top, bottom } = targetElement.getBoundingClientRect();
-  //     //   console.log(id, "------------------------------------------");
-  //     //   console.log("Top:", top);
-  //     //   console.log("Bottom:", bottom);
-  //     return { id, top, bottom };
-  //   }
-  // };
-
-  // setInterval(() => {
-  //   // () => dispatch(getPositionOnScroll());
-  //   // dispatch(getPositionOnScroll(getPosition(props.id)));
-  //   let result = getPosition(props.id);
-  //   // console.log("setInterval   result  :", result);
-  //   if (typeof result === "object" && result !== undefined) {
-  //     if (result.top < 200 && result.top > 0) {
-  //       dispatch(changeMutedOnScroll(result.id));
-  //     }
-  //   }
-  // }, 1000);
-  //   useEffect(() => {
-  //     console.log("effect");
-  //   });
   return (
-    <div
-    //   onScroll={(e) => {
-    //     getPosition();
-    //     // console.log("OneVideo :  ", e);
-    //     // console.log("OneVideo :  ", e.target.scrollTop);
-    //     // console.log("OneVideo :  ", e.target.scrollHeight);
-    //     // console.log("OneVideo :  ", e.target.clientHeight);
-    //   }}
-    >
-      {/* <button onClick={() => getPosition()}>Get Element Position</button> */}
+    <div className={oneVideo.oneVideo}>
       <video
-        // ref={targetRef}
         loop
         autoPlay={true}
         muted={props.muted}
-        width="90%"
+        width="100%"
         height="auto">
         <source src={props.video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <button
-        style={{ fontSize: "30px" }}
-        onClick={() => dispatch(mutedSwitch(props.id))}>
-        Song
+      <button onClick={() => dispatch(mutedSwitch(props.id))}>
+        <img src={stateConst.image.instProfilePage.sound} />
       </button>
     </div>
   );

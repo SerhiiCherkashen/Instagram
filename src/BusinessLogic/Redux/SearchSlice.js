@@ -1,21 +1,32 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { stateSearch } from "../State/StateSearch";
-// const url1 = "https://randomfox.ca/floof/";
+const url1 = "https://randomfox.ca/floof/";
+const api_key = "tcmVmyV1O76gLUzm9uXSQzO6W28VYLJxfSZZ4MesOnUdjPyVomJbKOTo";
 
-console.log("axiosData   response.data 0: ");
-export const axiosData = createAsyncThunk("search/axiosData", async () => {
-  // console.log("axiosData   response.data 000: ");
-  const response = await axios.fetch("https://randomfox.ca/floof/");
-  // console.log("axiosData   response.data 111: ", response.data);
-  const data = await response.json();
-  return data;
-  // return response;
+export const fetchData = createAsyncThunk(
+  "search/fetchData",
+  async (query, first) => {
+    const response = await axios.get(
+      `https://api.pexels.com/v1/search?query=${query}`,
+      {
+        headers: {
+          Authorization: api_key,
+        },
+      }
+    );
+    return response.data;
+  }
+);
+
+export const firstFetchData = createAsyncThunk("search/fetchData", async () => {
+  const response = await axios.get(`https://api.pexels.com/v1/curated`, {
+    headers: {
+      Authorization: api_key,
+    },
+  });
+  return response.data;
 });
-let a = axiosData();
-console.log("axiosData   response.data axiosData 222: ", a);
-
-console.log("axiosData   response.data 1: ");
 
 const state = stateSearch;
 const searchSlice = createSlice({
@@ -25,24 +36,36 @@ const searchSlice = createSlice({
     changeCount: (state) => {
       state.count += 10;
     },
+    clickSearchInput: (state) => {
+      state.input.value = "";
+    },
+    changeSearchInput: (state, action) => {
+      state.input.value = action.payload.target.value;
+    },
+    changeFirstSearch: (state) => {
+      state.countFirstRender = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(axiosData.pending, (state) => {
-        state.search.redux.loading = true;
-        state.search.redux.error = null;
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.countFirstRender = 1;
+        state.loading = false;
+        state.data = action.payload;
+        state.array = [];
+        state.array.push(action.payload);
       })
-      .addCase(axiosData.fulfilled, (state, action) => {
-        state.redux.loading = false;
-        state.redux.data = action.payload;
-        console.log("action.payload : ", action.payload);
-      })
-      .addCase(axiosData.rejected, (state, action) => {
-        state.redux.loading = false;
-        state.redux.error = action.error.message;
+      .addCase(fetchData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.error.message;
       });
   },
 });
 
-export const { changeCount } = searchSlice.actions;
+export const {
+  changeCount,
+  clickSearchInput,
+  changeSearchInput,
+  changeFirstSearch,
+} = searchSlice.actions;
 export default searchSlice.reducer;

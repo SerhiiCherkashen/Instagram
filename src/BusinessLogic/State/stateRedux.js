@@ -72,6 +72,7 @@ export const stateRedux = {
     count: 0,
     countFirstRender: true,
     stateLikeDoubleClick: false,
+    activeIndex: 0,
   },
   search: {
     redux: {

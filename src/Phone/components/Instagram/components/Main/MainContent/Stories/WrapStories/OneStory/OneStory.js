@@ -15,7 +15,9 @@ import { Link } from "react-router-dom";
 
 const OneStory = () => {
   const dispatch = useDispatch();
-  const { stateAccounts, stories } = useSelector((state) => state.phoneReducer);
+  const { stateAccounts, stories, main } = useSelector(
+    (state) => state.phoneReducer
+  );
 
   return (
     <div className={oneStory.oneStory}>
@@ -26,6 +28,7 @@ const OneStory = () => {
       {/* <img src={stateConst.image.all.motoCrossNew} /> */}
       <div className={oneStory.carousel}>
         <Carousel
+          activeIndex={main.activeIndex}
           onSelect={(e) => {
             dispatch(selectStory(e));
           }}

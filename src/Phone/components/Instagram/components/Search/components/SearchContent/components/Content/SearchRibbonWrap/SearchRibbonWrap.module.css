@@ -1,0 +1,10 @@
+.searchRW {
+  /* background-color: yellow; */
+
+  height: 680px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.searchRW::-webkit-scrollbar {
+  width: 0;
+}
