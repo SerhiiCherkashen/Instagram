@@ -50,6 +50,8 @@ const DataProfile = (props) => {
                   height: "100px",
                   borderRadius: "50px",
                   border: "10px solid red",
+
+                  objectFit: "cover",
                 }}
                 src={account.profilePhoto}
                 alt="..."
@@ -62,6 +64,7 @@ const DataProfile = (props) => {
                   width: "100px",
                   height: "100px",
                   borderRadius: "50px",
+                  objectFit: "cover",
                 }}
                 src={account.profilePhoto}
                 alt="..."
